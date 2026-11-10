@@ -13,3 +13,7 @@ Update status/handoff/evidence/roadmap after milestones; commit reviewed progres
 For frontend work use installed premium-ui-design, frontend-visual-qa, Hallmark and Impeccable; read their actual definitions first and research real references. Initialize Impeccable only here. Logo work uses brand-identity-studio, motion uses frontend-motion-design with reduced motion, video uses hackathon-video-studio and installed Remotion guidance/shared studio. No fabricated UI states/footage or private renderer modifications. Actual plugin data is the source of truth; Vercel is optional.
 
 Publication owner: sopskistar. Prepare a concrete reviewed repository/catalog entry pinned to a full40-character SHA before asking publication approval. Do not delay the stable approved catalog PR for optional polish. User-stated deadline November11,2026 17:00EST/23:00WAT; verify current official rules before submission. Video must be under90seconds, target75–85. Action-bound enforcement is planned/unimplemented; do not claim Hermes-wide enforcement.
+
+
+## Judge-first README
+Read README_EDITORIAL_STANDARD.md for all README edits. Preserve original evidence and live-versus-supporting distinctions, audit claims before rewriting and verify links. Do not publish a frozen/submitted artifact without confirming that edits are appropriate. Editorial changes get a README-only commit; separately authorized master-plan application work remains staged and tested.

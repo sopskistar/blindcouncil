@@ -116,3 +116,6 @@ P1 notification update (Nov10): schema3 outbox, leases, error/retry events, owne
 
 
 Native reliability milestone: fresh24h ac4e9f1d4090 real blocked-bot failure → targeted retry recovered Account2 only; original failure/history/deadline/bindings preserved, no owner duplicate, no votes, human confirmation, supported cleanup. Prior15m11b50f663677 expired and was safely not resurrected. **Delivery recovery LIVE PASS.** Packaging hardening55 supporting methods pass; actual install/remove/update checks are next. Do not repeat passed Telegram scenarios.
+
+
+Native interface update: documented operator RPC implemented/63 supporting methods passed; official Webapp bundle built; UI source drafted but real browser gate still OPEN (host connecting overlay). Existing completed Telegram scenarios remain PASS and must not be repeated. Actual install/remove/release compatibility PASS; publishing/design/demo still unfinished. No future feature removed.

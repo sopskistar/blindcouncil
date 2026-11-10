@@ -412,6 +412,7 @@ print(json.dumps(result))
     def cli_handler(self):
         handlers = []
         context = SimpleNamespace(register_platform_handler=lambda *args: None,
+                                  register_rpc=lambda *args: None,
                                   spawn_task=lambda *args, **kwargs: None,
                                   register_cli_command=lambda *args, **kwargs: handlers.append(kwargs["handler_fn"]))
         register(context)

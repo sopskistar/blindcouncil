@@ -1,4 +1,4 @@
-"""Official platform-handler probe. No token access or independent Telegram polling."""
+"""Native two-person decision coordination. No token access or independent polling."""
 import json
 import os
 from pathlib import Path
@@ -179,9 +179,11 @@ def local_probe():
 
 
 def register(ctx):
-    if not all(callable(getattr(ctx, name, None)) for name in ("register_platform_handler", "spawn_task")):
-        raise RuntimeError("BlindCouncil requires Hermes native platform handlers and supervised plugin tasks. Update Hermes; tested source: 2c955c3.")
+    if not all(callable(getattr(ctx, name, None)) for name in ("register_platform_handler", "spawn_task", "register_rpc")):
+        raise RuntimeError("BlindCouncil requires Hermes native platform handlers, supervised plugin tasks and plugin RPC. Use Hermes >=0.23.1.")
     ctx.register_platform_handler("telegram", lambda application, adapter: wire(ctx, application, adapter))
+    from .operator_rpc import register as register_operator
+    register_operator(ctx, allowed_users, readiness)
     def setup(parser):
         parser.add_argument("action", choices=["probe", "sdk-probe", "status", "configure", "readiness", "evidence", "cancel", "revoke", "create", "history", "notifications", "retry-notifications"])
         parser.add_argument("--round-id")
@@ -243,4 +245,4 @@ def register(ctx):
         print(json.dumps(result, indent=2))
         if args.action in {"configure", "readiness", "create"} and result.get("status") == "BLOCKED":
             raise SystemExit(2)
-    ctx.register_cli_command("blindcouncil", help="BlindCouncil feasibility probes", setup_fn=setup, handler_fn=run)
+    ctx.register_cli_command("blindcouncil", help="Private two-person decisions and delivery recovery", setup_fn=setup, handler_fn=run)
