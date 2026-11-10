@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-11-10T09:37:57.732402+00:00",
+  "schema_version": 2,
+  "read_only": true,
+  "rounds": {
+    "38378f7fbe90": {
+      "state": "approved",
+      "response_count": 2,
+      "accepted_receipt_count": 2,
+      "accepted_receipt_fingerprint": "e365c5ae1ebaefee4f29e6533cc536c94dd59dfadddec3764fb81f8070afe2af",
+      "passed": true,
+      "unchanged_after_restart": true
+    },
+    "6917ad5b2a4e": {
+      "state": "cancelled",
+      "response_count": 1,
+      "accepted_receipt_count": 1,
+      "accepted_receipt_fingerprint": "66746ce387f6a48e1caf83aadff3ee3a07f79ba657196bafe3a2e6c95f7dc7f8",
+      "passed": true,
+      "unchanged_after_restart": true
+    },
+    "cb54bed1b2b7": {
+      "state": "rejected",
+      "response_count": 2,
+      "accepted_receipt_count": 2,
+      "accepted_receipt_fingerprint": "5f3fe83de9c478d44a0c262f8468550fa64264f774a976f9e7d0508bdc8c1c74",
+      "passed": true,
+      "unchanged_after_restart": true
+    },
+    "f79effc48d29": {
+      "state": "expired",
+      "response_count": 0,
+      "accepted_receipt_count": 0,
+      "accepted_receipt_fingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "passed": true,
+      "unchanged_after_restart": true
+    }
+  },
+  "passed": true,
+  "private_actor_ids_or_choices_exported": false
+}

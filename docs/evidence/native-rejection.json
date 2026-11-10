@@ -1,0 +1,18 @@
+{
+  "observed_utc": "2026-11-09T16:58:15.745061+00:00",
+  "round_id": "cb54bed1b2b7",
+  "aggregate": "rejected",
+  "response_count": 2,
+  "accepted_receipt_count": 2,
+  "two_distinct_participants_match": true,
+  "native_receipts_from_restarted_gateway": 2,
+  "distinct_callback_ids": true,
+  "distinct_update_ids": true,
+  "accepted_receipt_fingerprint": "5f3fe83de9c478d44a0c262f8468550fa64264f774a976f9e7d0508bdc8c1c74",
+  "user_confirmation": {
+    "account_2_action": "Reject once",
+    "acknowledgement": "Response recorded privately.",
+    "account_1_received": "BlindCouncil cb54bed1b2b7: REJECTED (two responses, unanimous policy)."
+  },
+  "participant_ids_or_individual_choices_exported": false
+}

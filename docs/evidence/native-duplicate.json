@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-11-09T16:31:01.183759+00:00",
+  "round_id": "38378f7fbe90",
+  "test": "genuine duplicate tap after approval",
+  "response_count": 2,
+  "accepted_receipt_count": 2,
+  "accepted_receipt_fingerprint": "e365c5ae1ebaefee4f29e6533cc536c94dd59dfadddec3764fb81f8070afe2af",
+  "result": "PASS: no additional vote or accepted receipt",
+  "user_confirmation": {
+    "duplicate_acknowledgement": "Your response is already recorded.",
+    "extra_result_notification": false
+  },
+  "notification_evidence_limit": "User-confirmed Telegram observation; prototype has no durable outgoing-notification ledger",
+  "raw_actor_ids_or_choices_exported": false
+}

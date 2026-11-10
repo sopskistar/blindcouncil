@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-11-10T09:53:33.139461+00:00",
+  "round_id": "f5b02a4352bb",
+  "aggregate": "pending",
+  "accepted_vote_count": 0,
+  "accepted_receipt_count": 0,
+  "only_account_2_revoked": true,
+  "owner_permission_unchanged": true,
+  "native_callback_attempts": [
+    {
+      "outcome": "denied",
+      "reason": "message_binding_or_choice",
+      "origin": "hermes-telegram",
+      "received_utc": "2026-11-10T09:49:31.502837+00:00"
+    },
+    {
+      "outcome": "denied",
+      "reason": "participant_revoked",
+      "origin": "hermes-telegram",
+      "received_utc": "2026-11-10T09:52:54.854335+00:00"
+    }
+  ],
+  "user_confirmation": {
+    "account": "Account 2",
+    "action": "Approve once on original bound invitation after revocation",
+    "alert": "This request is not authorized for this account or message.",
+    "account_1_and_diagnostic_untouched": true
+  },
+  "classification": "LIVE native callback, decision-scoped authorization denial; not a global allowlist or third-account test",
+  "passed": true,
+  "private_actor_ids_and_choices_exported": false,
+  "read_only_audit": true
+}

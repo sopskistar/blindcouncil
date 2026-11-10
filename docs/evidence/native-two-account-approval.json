@@ -1,0 +1,37 @@
+{
+  "observed_utc": "2026-11-09T16:27:25.807483+00:00",
+  "round_id": "38378f7fbe90",
+  "test": "genuine Approve + Approve",
+  "result": "PASS",
+  "source_git_commit": "37d67d8b795afde8aca28b5c9279113d9a99acb5",
+  "callback_authentication": "Two distinct configured accounts accepted through native handler and delivery/allowlist checks",
+  "audit": {
+    "round_id": "38378f7fbe90",
+    "aggregate": "approved",
+    "bound_deliveries": 2,
+    "receipt_count": 2,
+    "native_receipt_count": 2,
+    "two_configured_identities_match": true,
+    "synthetic_or_unclassified_receipts": 0,
+    "callback_identity_gate": "PASS",
+    "scope": "Local receipt audit; verify a real Hermes gateway was running and humans pressed the buttons",
+    "individual_votes_exported": false,
+    "participant_ids_exported": false
+  },
+  "user_confirmation": {
+    "separate_requests_received": true,
+    "account_1_approved_first": true,
+    "account_2_approved_second": true,
+    "owner_received_APPROVED": true,
+    "additional_buttons_pressed_before_audit": false
+  },
+  "remaining_live_tests": [
+    "duplicate response",
+    "Approve + Reject",
+    "restart persistence",
+    "unauthorized/wrong-binding callbacks",
+    "expiry",
+    "cancellation"
+  ],
+  "scope": "Two-account approval mechanism verified; not a complete MVP or all-tests pass"
+}

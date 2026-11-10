@@ -1,0 +1,19 @@
+{
+  "observed_utc": "2026-11-10T09:25:31.189428+00:00",
+  "round_id": "6917ad5b2a4e",
+  "aggregate": "cancelled",
+  "response_count": 1,
+  "accepted_receipt_count": 1,
+  "original_receipts_unchanged": true,
+  "callback_attempts": [
+    {
+      "outcome": "cancelled",
+      "reason": "",
+      "origin": "hermes-telegram",
+      "received_utc": "2026-11-09T17:04:45.005516+00:00"
+    }
+  ],
+  "user_confirmation": "This decision was cancelled. No new response was recorded.",
+  "passed": true,
+  "participant_ids_and_choices_exported": false
+}

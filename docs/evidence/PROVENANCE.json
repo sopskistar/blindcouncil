@@ -1,0 +1,50 @@
+{
+  "native-two-account-approval.json": {
+    "sha256": "6ba10656ef74f9a4626c75f7ba824670d1ac8b91c96357f7a85cb6b675f8a6eb",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-approved-notifications.json": {
+    "sha256": "dcf85aebaaa918c05aea34139c3cba673e83403b2faebeb5839e8932485ea8fa",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-security-denial.json": {
+    "sha256": "e8d07bd06870b99250665287394fafd14e3ee3d4207b7d9b0e2a0fe29ca41ed6",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-expiry.json": {
+    "sha256": "f0332acc622fe134e8b418b9468a0c0ae80dd05c8250407cc3de543320c3d484",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-blocked-delivery.json": {
+    "sha256": "6cde11f39a5c830820362931669f48d10cd09cfa6afb98b4585d1d06bed72eb3",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-delivery-recovery.json": {
+    "sha256": "00496ce128455a1221c2b7027c98b7a7de87f49c3b64c0365f4a4df44c116cf4",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "human-recovery-confirmation.json": {
+    "sha256": "3752d4c79f83a30f50278e52e7106635be3de17458ec01fb4d6a06c65c9c54c3",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-rejection.json": {
+    "sha256": "c6b52e1e4b61d37a518cf0f9360b4ddcb7e8dddb79a2faf2ded25db04fafdb31",
+    "source_research_path": "evidence/native-telegram-20261109/round-3-rejected-summary.json",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-duplicate.json": {
+    "sha256": "7b47364f505432e4e69c53a251558cf5593ae994c5dfa45a9cdacf8af42d443e",
+    "source_research_path": "evidence/native-telegram-20261109/round-1-duplicate-summary.json",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-cancellation.json": {
+    "sha256": "42b5c1cb9343c1931708f403963b0c2400d0db95bd2afc2b0aa6e66965a38190",
+    "source_research_path": "evidence/recovery-20261110/cancelled-late-callback-audit.json",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  },
+  "native-restart.json": {
+    "sha256": "e23936276b75498a136fb971e28e1ef793afc8438dfb0db3d2f1c530d147a132",
+    "source_research_path": "evidence/live-negative-20261110/four-rounds-after-restart.json",
+    "export": "Original sanitized evidence bytes; raw identities/credentials excluded"
+  }
+}

@@ -1,0 +1,15 @@
+# BlindCouncil development instructions
+
+Read PROJECT_MASTER_PLAN.md, PROJECT_STATUS.md, HANDOFF.md, ROADMAP.md, DECISIONS.md and TEST_EVIDENCE.md before substantial work. Preserve all requirements, original sanitized evidence and unfinished roadmap items. BUILD_REQUIREMENTS.md and LIVE_GATE.md are preserved historical source requirements; current status/handoff supersede stale operational steps.
+
+This is the clean distribution of the existing research project, not a new implementation. Research and private runtime remain at /home/sopski/projectresearch/hermes-feasibility-20261109. Do not publish the research repository or copy private homes, credentials, account IDs, databases or raw gateway logs here. No unrelated changes, paid inference/resources or external publication without explicit owner approval.
+
+Runtime lives in blindcouncil/; __init__.py at root is the official loader entry point. Use documented Hermes APIs only. Never patch core/private renderer, bypass approvals or create an independent Telegram poller. Current participant secrets/settings stay with Hermes. Identity comes from the native SDK, never model/callback arguments. No registered interface may fabricate a vote or disclose another participant's answer.
+
+Supporting tests: python3 scripts/test.py --hermes-source ../../vendor/hermes-agent --runtime-home ../../isolated-home --runtime-dir ../../runtime --evidence-dir docs/evidence/NEW-UNUSED-NAME. Tests use temporary homes, synthetic identities/transport and actual Hermes storage. Never run mutating developer probes on a live home. Run official Doctor/validator on the exact final tree and real install/remove checks in disposable credential-free profiles. Preserve failed evidence and do not overstate version compatibility, exactly-once delivery, privacy or action enforcement.
+
+Update status/handoff/evidence/roadmap after milestones; commit reviewed progress locally. Git HEAD is the exact latest SHA. Record running processes, environment, limitations and next step before account changes. No extra Telegram test is pending; do not repeat passed scenarios except a concrete critical regression.
+
+For frontend work use installed premium-ui-design, frontend-visual-qa, Hallmark and Impeccable; read their actual definitions first and research real references. Initialize Impeccable only here. Logo work uses brand-identity-studio, motion uses frontend-motion-design with reduced motion, video uses hackathon-video-studio and installed Remotion guidance/shared studio. No fabricated UI states/footage or private renderer modifications. Actual plugin data is the source of truth; Vercel is optional.
+
+Publication owner: sopskistar. Prepare a concrete reviewed repository/catalog entry pinned to a full40-character SHA before asking publication approval. Do not delay the stable approved catalog PR for optional polish. User-stated deadline November11,2026 17:00EST/23:00WAT; verify current official rules before submission. Video must be under90seconds, target75–85. Action-bound enforcement is planned/unimplemented; do not claim Hermes-wide enforcement.

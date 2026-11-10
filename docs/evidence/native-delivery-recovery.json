@@ -1,0 +1,77 @@
+{
+  "observed_utc": "2026-11-10T11:27:27.499060+00:00",
+  "round_id": "ac4e9f1d4090",
+  "aggregate": "pending",
+  "invitations": [
+    {
+      "participant": "Account 1",
+      "state": "sent",
+      "total_attempts": 1,
+      "confirmed_message_present": true,
+      "current_error_code": null
+    },
+    {
+      "participant": "Account 2",
+      "state": "sent",
+      "total_attempts": 2,
+      "confirmed_message_present": true,
+      "current_error_code": null
+    }
+  ],
+  "events": [
+    {
+      "participant": "Account 1",
+      "outcome": "leased",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:22:01.663961+00:00"
+    },
+    {
+      "participant": "Account 1",
+      "outcome": "sent",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:22:02.051054+00:00"
+    },
+    {
+      "participant": "Account 2",
+      "outcome": "leased",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:22:02.173722+00:00"
+    },
+    {
+      "participant": "Account 2",
+      "outcome": "blocked",
+      "error_code": "Forbidden",
+      "occurred_utc": "2026-11-10T11:22:02.364942+00:00"
+    },
+    {
+      "participant": "Account 2",
+      "outcome": "retry_requested",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:26:49.712757+00:00"
+    },
+    {
+      "participant": "Account 2",
+      "outcome": "leased",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:26:50.533554+00:00"
+    },
+    {
+      "participant": "Account 2",
+      "outcome": "sent",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:26:51.323459+00:00"
+    }
+  ],
+  "both_bindings_match_correct_round_and_recipient": true,
+  "account_1_binding_unchanged": true,
+  "original_forbidden_failure_preserved": true,
+  "explicit_retry_event_preserved": true,
+  "exact_deadline_unchanged": true,
+  "expires_utc": "2026-11-11T11:20:21.044378+00:00",
+  "accepted_votes": 0,
+  "accepted_receipts": 0,
+  "human_recovery_confirmation": "PENDING",
+  "private_actor_ids_message_ids_and_choices_exported": false,
+  "exactly_once_delivery_claimed": false,
+  "api_recovery_checks_passed": true
+}

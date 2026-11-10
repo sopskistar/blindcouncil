@@ -1,0 +1,19 @@
+{
+  "observed_utc": "2026-11-10T11:32:29.103496+00:00",
+  "round_id": "ac4e9f1d4090",
+  "state_at_recovery_completion": "pending",
+  "accepted_votes": 0,
+  "accepted_receipts": 0,
+  "exact_expiration_unchanged": true,
+  "api_recovery_checks_passed": true,
+  "previous_expired_round_all_records_unchanged": true,
+  "user_confirmation": {
+    "account_2_received_recovered_invitation": true,
+    "account_1_received_no_duplicate": true,
+    "no_votes_or_old_round_interactions": true
+  },
+  "classification": "LIVE blocked-bot failure and explicit retry recovery corroborated by real Telegram account observations",
+  "passed": true,
+  "private_ids_or_choices_exported": false,
+  "exactly_once_delivery_guarantee_claimed": false
+}

@@ -1,0 +1,26 @@
+{
+  "observed_utc": "2026-11-10T09:34:38.337260+00:00",
+  "round_id": "f79effc48d29",
+  "aggregate": "expired",
+  "response_count": 0,
+  "accepted_receipt_count": 0,
+  "attempts": [
+    {
+      "outcome": "expired",
+      "reason": "",
+      "origin": "hermes-telegram",
+      "received_utc": "2026-11-10T09:33:46.414242+00:00",
+      "received_after_deadline": true
+    }
+  ],
+  "expiry_event_count": 1,
+  "user_confirmation": {
+    "account": "Account 2",
+    "action": "Approve once after expiry",
+    "alert": "This decision has expired. No new response was recorded.",
+    "account_1_untouched": true
+  },
+  "classification": "LIVE native Telegram callback corroborated by human action and persistent attempt; no fabricated Update",
+  "passed": true,
+  "private_actor_ids_and_individual_choices_exported": false
+}

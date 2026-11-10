@@ -1,0 +1,61 @@
+{
+  "observed_utc": "2026-11-10T11:24:02.681449+00:00",
+  "round_id": "ac4e9f1d4090",
+  "aggregate": "pending",
+  "expires_at_epoch": 1794396021.0443783,
+  "expires_utc": "2026-11-11T11:20:21.044378+00:00",
+  "duration_seconds": 86400.0,
+  "exact_deadline_unchanged_from_pre_delivery_audit": true,
+  "deadline_still_future": true,
+  "invitations": [
+    {
+      "participant": "Account 1",
+      "state": "sent",
+      "attempts": 1,
+      "confirmed_message_present": true,
+      "error_code": null
+    },
+    {
+      "participant": "Account 2",
+      "state": "blocked",
+      "attempts": 1,
+      "confirmed_message_present": false,
+      "error_code": "Forbidden"
+    }
+  ],
+  "events": [
+    {
+      "participant": "Account 1",
+      "outcome": "leased",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:22:01.663961+00:00"
+    },
+    {
+      "participant": "Account 1",
+      "outcome": "sent",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:22:02.051054+00:00"
+    },
+    {
+      "participant": "Account 2",
+      "outcome": "leased",
+      "error_code": null,
+      "occurred_utc": "2026-11-10T11:22:02.173722+00:00"
+    },
+    {
+      "participant": "Account 2",
+      "outcome": "blocked",
+      "error_code": "Forbidden",
+      "occurred_utc": "2026-11-10T11:22:02.364942+00:00"
+    }
+  ],
+  "owner_binding_fingerprint": "86ff47ce946fb5673f53909d65c17da074ab54efaffb89a8573e7892bb35ac88",
+  "accepted_votes": 0,
+  "accepted_receipts": 0,
+  "previous_expired_round_all_records_unchanged": true,
+  "previous_round_records_fingerprint": "72ca2307653b1c910f77ca64cfb6591dc72bfb9fcd6a107ac4b2456f5753799e",
+  "failure_preserved_before_unblock_request": true,
+  "classification": "LIVE native bot delivery; fresh 24-hour round preflighted before any send, actual Forbidden with Account 2 blocked",
+  "private_actor_ids_or_choices_exported": false,
+  "passed": true
+}
