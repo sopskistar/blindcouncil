@@ -1,0 +1,52 @@
+{
+  "classification": "Actual official Hermes Webapp browser interaction in a token-free profile with synthetic participants; no Telegram network",
+  "source_core": "3b421578588243f920886e6fe79a6faa87ea026e",
+  "page_errors": {
+    "protected-api-auth-r2": 0,
+    "real-accessibility-responsive": 0
+  },
+  "auth": {
+    "anonymousProtectedApiStatus": 401,
+    "anonymousRpc": {
+      "connectionError": true,
+      "resultReceived": false
+    },
+    "anonymousVisibleText": ""
+  },
+  "accessibility_and_layout": {
+    "emptyTitleFocusedErrorSummary": true,
+    "titleMarkedInvalid": true,
+    "layouts": [
+      {
+        "name": "desktop",
+        "width": 1120,
+        "scrollWidth": 1120,
+        "clientWidth": 1120,
+        "right": 1410,
+        "viewportWidth": 1440
+      },
+      {
+        "name": "tablet",
+        "width": 508,
+        "scrollWidth": 508,
+        "clientWidth": 508,
+        "right": 768,
+        "viewportWidth": 768
+      },
+      {
+        "name": "phone",
+        "width": 390,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "right": 390,
+        "viewportWidth": 390
+      }
+    ],
+    "darkThemeComputedBackground": "color(srgb 0.0509804 0.0625882 0.0810196)"
+  },
+  "limitations": [
+    "OS dark preference produced a dark computed host background; full light/dark contrast audit remains open.",
+    "Automated browser runs inside WSL; manual Windows browser access remains unconfirmed.",
+    "No private identities or individual choices are returned by the operator RPC."
+  ]
+}

@@ -98,6 +98,15 @@ class OperatorRpcTests(unittest.TestCase):
         self.assertEqual(result["status"], "error")
         self.assertNotIn("PRIVATE_PATH_RESPONSE", json.dumps(result))
 
+    def test_configuration_failure_cannot_leak_exception_data_or_create_work(self):
+        self.ctx.get_config = lambda *args: (_ for _ in ()).throw(RuntimeError("PRIVATE_CONFIG_VALUE"))
+        for action in ["board", "create", "detail", "cancel", "retry"]:
+            result = self.call({"action": action, "title": "Valid", "round_id": "abcdef123456"})
+            self.assertEqual(result["status"], "error")
+            self.assertNotIn("PRIVATE_CONFIG_VALUE", json.dumps(result))
+        self.assertEqual(self.count("rounds"), 0)
+        self.assertEqual(self.count("votes"), 0)
+
 
 if __name__ == "__main__":
     unittest.main()

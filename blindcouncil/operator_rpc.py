@@ -14,10 +14,10 @@ def register(ctx, allowed_users, readiness):
         if not isinstance(params, dict):
             return {"status": "error", "message": "Invalid request."}
         action = params.get("action", "board")
-        owner = str(ctx.get_config("owner_id", ""))
-        people = [str(x) for x in ctx.get_config("participants", [])]
-        allowed = allowed_users()
         try:
+            owner = str(ctx.get_config("owner_id", ""))
+            people = [str(x) for x in ctx.get_config("participants", [])]
+            allowed = allowed_users()
             if action == "board":
                 ready = readiness(ctx)
                 runtime = ctx.state.get("telegram_runtime", {})
