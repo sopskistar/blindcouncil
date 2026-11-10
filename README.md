@@ -6,9 +6,11 @@ A release coordinator needs two reviewers to agree before calling a checklist ap
 
 BlindCouncil puts that workflow inside Hermes. It sends separate Telegram requests, accepts one authenticated response per account and applies a persisted unanimous policy. The coordinator sees progress and the aggregate result; no model decides how a person voted.
 
+BlindCouncil’s product vision is a privacy-conscious human authorization and decision engine for Hermes. **Telegram is its first response channel.** The current build implements authenticated decision coordination and deterministic outcomes; it has **no agent-facing tools or protected action executor yet**. Action-bound approval for one exact structured operation is being investigated separately. See the [capability audit](docs/CAPABILITY_AUDIT.md) for implemented, tested and future boundaries.
+
 **[Judge walkthrough](#judges-start-here) · [Genuine Telegram evidence](#what-is-verified) · [Source](blindcouncil) · [Architecture](docs/ARCHITECTURE.md) · [Security](SECURITY.md)**
 
-**Status:** working local native Hermes/Telegram plugin; public repository, catalog PR, Desktop interface and demo video are pending. There is no hosted public demo or published video link yet. This release has no static mockup presented as application evidence.
+**Status:** working native Hermes/Telegram core and a real Desktop/Webapp create/cancel/history flow. The interface is currently browser-tested in a token-free profile with synthetic participants; deployment against genuine Telegram history and remaining UI checks are still open. Public GitHub/catalog and demo video are pending. No hosted public demo or fabricated application screenshot is claimed.
 
 ## Judges: start here
 
@@ -39,7 +41,8 @@ The first response stays pending even if it is a rejection: this version collect
 | Stored rounds survive a gateway restart | [Before/after comparison](docs/evidence/native-restart.json) | Actual native gateway stop/start |
 | Aggregate reaches both participants | [Delivery audit](docs/evidence/native-approved-notifications.json) | Real Telegram deliveries, confirmed on both accounts |
 | Blocked recipient recovers without resending the successful invitation | [Forbidden](docs/evidence/native-blocked-delivery.json), [targeted retry](docs/evidence/native-delivery-recovery.json), [user confirmation](docs/evidence/human-recovery-confirmation.json) | Real block/unblock; original error and exact deadline retained |
-| Policy, rollback, migration, concurrency, leases and retries | [55 passing methods](docs/evidence/packaged-tests-20261110-r1/result.json), [transcript](docs/evidence/packaged-tests-20261110-r1/stderr.log) | Actual Hermes SQLite; synthetic identities/transport; no Telegram network |
+| Policy, rollback, migration, concurrency, delivery and operator RPC boundary | [63 passing methods](docs/evidence/operator-rpc-tests-20261110-r1/result.json), [transcript](docs/evidence/operator-rpc-tests-20261110-r1/stderr.log) | Actual Hermes SQLite; synthetic identities/transport/context; no Telegram network |
+| Native Webapp creation, practical expiry, cancellation and history | [Browser and stored-state proof](docs/evidence/native-ui-20261110/browser-and-storage-proof.json) | Real Hermes browser/RPC/SQLite; synthetic participants; no Telegram delivery claimed |
 
 These are scoped integration proofs, not production load or adversarial security certification. A globally unallowlisted third account was not tested live. The owner used two accounts; distinct account identities do not establish independent humans. [Real installation/removal/reinstallation](docs/evidence/installer-lifecycle-20261110/lifecycle-summary.json) retained all fixture records. Final compatibility/validation results are tracked in [PROJECT_STATUS.md](PROJECT_STATUS.md).
 
@@ -149,6 +152,6 @@ SECURITY.md          trust, disclosure, retention and deletion
 PROJECT_MASTER_PLAN.md / ROADMAP.md / HANDOFF.md   durable scope and continuation
 ```
 
-Desktop/Webapp UX, action-bound approval enforcement, additional policies and platforms remain **planned**. Current aggregate messages do not authorize other Hermes actions. The full [master plan](PROJECT_MASTER_PLAN.md) and [roadmap](ROADMAP.md) preserve that scope without claiming it shipped.
+Desktop/Webapp UX is **partly implemented and browser-tested** as described above. Agent-callable authorization requests, a fail-closed action executor, additional policies and additional platforms remain **planned**. Only two-person collect-both unanimity exists today. A prospective first protected action is an exact bounded release note in plugin-owned storage; no grant or execution test exists yet. Current aggregate messages do not authorize other Hermes actions. The full [master plan](PROJECT_MASTER_PLAN.md) and [roadmap](ROADMAP.md) preserve that scope without claiming it shipped.
 
 MIT licensed: [LICENSE](LICENSE). No paid model API or hosted database is required by the implemented workflow. The plugin does not depend on a Vercel site.
