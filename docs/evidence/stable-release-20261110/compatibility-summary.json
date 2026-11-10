@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-11-10T12:28:21.042034+00:00",
+  "official_release": "v0.23.1",
+  "hermes_source_sha": "3b421578588243f920886e6fe79a6faa87ea026e",
+  "plugin_tested_commit": "ea1a0a5eafa328f383aa189a2eaa171bdbf68317",
+  "install_enabled": true,
+  "native_entry_load_and_registration": true,
+  "supporting_tests": 55,
+  "supporting_result": "../stable-release-tests-20261110-r1/result.json",
+  "fresh_home_readiness": "BLOCKED as expected: no credentials or participants were copied",
+  "live_gateway_upgraded": false,
+  "native_telegram_live_test_repeated": false,
+  "declared_floor": ">=0.23.1",
+  "older_release_compatibility_claimed": false,
+  "final_manifest_validation": "PASS: actual official command, dependencies prepared, safe scan, no core overrides"
+}

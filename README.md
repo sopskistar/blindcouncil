@@ -41,7 +41,7 @@ The first response stays pending even if it is a rejection: this version collect
 | Blocked recipient recovers without resending the successful invitation | [Forbidden](docs/evidence/native-blocked-delivery.json), [targeted retry](docs/evidence/native-delivery-recovery.json), [user confirmation](docs/evidence/human-recovery-confirmation.json) | Real block/unblock; original error and exact deadline retained |
 | Policy, rollback, migration, concurrency, leases and retries | [55 passing methods](docs/evidence/packaged-tests-20261110-r1/result.json), [transcript](docs/evidence/packaged-tests-20261110-r1/stderr.log) | Actual Hermes SQLite; synthetic identities/transport; no Telegram network |
 
-These are scoped integration proofs, not production load or adversarial security certification. A globally unallowlisted third account was not tested live. The owner used two accounts; distinct account identities do not establish independent humans. Packaging lifecycle and final exact-tree validation are being completed; current results are tracked in [PROJECT_STATUS.md](PROJECT_STATUS.md).
+These are scoped integration proofs, not production load or adversarial security certification. A globally unallowlisted third account was not tested live. The owner used two accounts; distinct account identities do not establish independent humans. [Real installation/removal/reinstallation](docs/evidence/installer-lifecycle-20261110/lifecycle-summary.json) retained all fixture records. Final compatibility/validation results are tracked in [PROJECT_STATUS.md](PROJECT_STATUS.md).
 
 ## Why this belongs in Hermes
 
@@ -128,7 +128,7 @@ Read [security and data handling](SECURITY.md) before using sensitive decisions.
 
 ## Compatibility and development
 
-Version **0.1.0**, schema **3**. Tested with official Hermes source `2c955c3a8c0bf8f52cbfad13ed3215ade4eb6f94` (`vgit.2c955c3`), Python 3.14.9 and python-telegram-bot 22.8. The native factory runs **in process** and requires the official native-handler and supervised-task APIs. Older release compatibility has not been established. [Tested source hashes and environment](docs/evidence/packaged-tests-20261110-r1/result.json).
+Version **0.1.0**, schema **3**. Tested with official Hermes source `2c955c3a8c0bf8f52cbfad13ed3215ade4eb6f94` (`vgit.2c955c3`), Python 3.14.9 and python-telegram-bot 22.8. The native factory runs **in process** and requires the official native-handler and supervised-task APIs. Hermes **0.23.1 or newer** is the conservative declared floor; 55 supporting methods and real installation/enablement also passed on the official v0.23.1 tag. The original live Telegram proof used the earlier pinned source above; the running gateway was not upgraded for this release check. [Tested source hashes and environment](docs/evidence/packaged-tests-20261110-r1/result.json).
 
 ```bash
 hermes plugins doctor . --ci

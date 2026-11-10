@@ -1,0 +1,11 @@
+{
+  "status": "BLOCKED",
+  "issues": [
+    "Configure two distinct positive Telegram user IDs",
+    "Configured owner must be one of the participants",
+    "Both participants must be explicitly listed in TELEGRAM_ALLOWED_USERS"
+  ],
+  "configured_participant_count": 0,
+  "credentials_shown": false,
+  "live_callback_test_passed": false
+}

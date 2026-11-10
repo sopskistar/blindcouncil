@@ -1,0 +1,22 @@
+{
+  "classification": "Real Hermes installer and storage lifecycle; synthetic decision fixture only",
+  "installed_tree_exists": true,
+  "installed_revision": "01b227d367b2743deff799ce330aff80dc6d8589",
+  "database_retained": true,
+  "table_counts": {
+    "callback_attempts": 0,
+    "decision_events": 4,
+    "deliveries": 4,
+    "notification_events": 0,
+    "notification_outbox": 8,
+    "participant_revocations": 0,
+    "receipt_origins": 0,
+    "receipts": 0,
+    "round_lifecycle": 2,
+    "rounds": 2,
+    "votes": 4
+  },
+  "records_sha256": "22e0682825891ef5349688fb1377dcf06a72fa79befc6e0609af110926fdd2b4",
+  "telegram_network_started": false,
+  "live_profile_read": false
+}

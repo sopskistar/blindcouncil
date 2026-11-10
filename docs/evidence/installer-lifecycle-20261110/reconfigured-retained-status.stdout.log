@@ -1,0 +1,15 @@
+{
+  "round_id": "68a2595145f8",
+  "status": "approved",
+  "title": "Two-person decision",
+  "description": "",
+  "policy": "two_person_unanimous",
+  "policy_version": 1,
+  "participant_count": 2,
+  "responded_count": 2,
+  "bound_invitation_count": 2,
+  "revoked_invitation_count": 0,
+  "created_utc": "2026-11-10T12:17:10.165058+00:00",
+  "expires_utc": "2026-11-11T12:17:10.165058+00:00",
+  "individual_answers_included": false
+}

@@ -1,0 +1,14 @@
+{
+  "observed_utc": "2026-11-10T12:27:01.095730+00:00",
+  "command": [
+    "hermes",
+    "blindcouncil",
+    "readiness"
+  ],
+  "exit_code": 2,
+  "hermes_home": "packaging-tests/release-home",
+  "real_hermes_cli": true,
+  "hermes_source_commit": "3b421578588243f920886e6fe79a6faa87ea026e",
+  "credential_configuration_copied": false,
+  "telegram_network_started": false
+}

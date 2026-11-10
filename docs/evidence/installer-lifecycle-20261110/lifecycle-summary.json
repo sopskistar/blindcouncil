@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-11-10T12:22:56.108169+00:00",
+  "actual_installer_used": true,
+  "installed_then_removed_then_reinstalled": true,
+  "database_all_records_identical": true,
+  "fixture_rounds": 2,
+  "fixture_votes": 4,
+  "first_pin": "01b227d367b2743deff799ce330aff80dc6d8589",
+  "reinstalled_pin": "ea1a0a5eafa328f383aa189a2eaa171bdbf68317",
+  "pin_update_expected_refusal": true,
+  "new_process_storage_read": true,
+  "removal_clears_settings_reconfigure_required": true,
+  "credential_configuration_copied": false,
+  "telegram_calls_made": false,
+  "classification": "Real Hermes CLI/installer and storage; synthetic decision fixtures, not an additional live Telegram test",
+  "failures_preserved": [
+    "initial profile without dependency environment",
+    "sandbox DNS preparation failures; official commands retried with approved network access",
+    "update --yes with named plugin invalid; correct command refused moving immutable pin as intended",
+    "status after reinstall denied until owner fixture configuration restored"
+  ],
+  "scope_limits": [
+    "Repin moved a README-only source commit; schema3 storage unchanged, not a schema-upgrade proof",
+    "In-process native factory only",
+    "Release compatibility still pending"
+  ]
+}

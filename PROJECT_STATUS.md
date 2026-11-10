@@ -1,12 +1,32 @@
-# BlindCouncil distribution status
+# BlindCouncil current status
 
-November10,2026. P0 scoped native Telegram integration and P1 live notification recovery PASS. Version0.1.0/schema3. This dedicated local tree preserves the existing tested implementation and requirements. No public repository, catalog PR, Desktop UI or final video exists yet.
+Updated November10,2026 12:35UTC. **Scoped P0 native integration and P1 core reliability/package gates PASS. P2 official native UI is next.** Full hackathon submission remains incomplete.
 
-- Real native two-account approval/rejection, duplicate prevention, identity/message checks, cancellation/expiry, revocation and restart persistence passed.
-- Native queued-work recovery passed. Genuine blocked-bot Forbidden and targeted retry passed; user confirmed Account2 received and Account1 had no duplicate. Zero votes and exact24h deadline retained. Supported test cleanup cancelled only ac4e9f1d4090, preserving its history.
-- Seven selected original sanitized JSON proofs with hashes are in docs/evidence. Complete source evidence stays in the preserved research repo.
-- 55 supporting methods passed against this nested package using actual Hermes SQLite and synthetic transport; docs/evidence/packaged-tests-20261110-r1. This is not another live Telegram test.
-- Root loader façade, exact-tree Doctor/validator and install/remove/update still need real checks. Older research source passed Doctor/validation; do not transfer that claim automatically.
-- Compatibility is tested only on Hermes source2c955c3a8c0bf8f52cbfad13ed3215ade4eb6f94, Python3.14.9/PTB22.8. No older release floor is established.
+## Verified
 
-Next: real clean install/load/removal/persistence in separate packaging-tests profile, final metadata/validation, official native Desktop/Webapp extension, branding and approved GitHub/catalog publication. Keep unfinished video/X/form and all post-MVP features in ROADMAP. No paid calls/publication or new live Telegram action is authorized by this status file.
+- Genuine two-account Approve/Approve and Approve/Reject, distinct configured callback identities, duplicate rejection, cancellation/expiry late-tap denial, wrong-message and decision-revoked denials, and native restart persistence. A globally unallowlisted third account remains supporting-only.
+- Native durable queue restart recovery; actual Forbidden while Account2 blocked the bot; targeted retry after unblock, user-confirmed Account2 receipt/no Account1 duplicate. Exact24h expiry retained, zero accepted votes. ac4e9f1d4090 was PENDING at successful recovery, then supported cleanup CANCELLED only that round with original failure history preserved. No further Telegram test is pending.
+- Clean dedicated local distribution prepared in release/blindcouncil, branch main. Seven runtime modules, root loader façade, MIT, PTB22.8 dependency, truthful trust/disclosure/setup docs and original sanitized proofs. No private configuration copied.
+- Real official pinned install/enable/load/remove/reinstall in a credential-free home. Every fixture database record retained its hash; settings were removed, and permitted access resumed after fixture coordinator reconfiguration. Immutable-pin update refusal verified. Explicit repin changed only README code history, not schema.
+- Actual official Hermes v0.23.1 tag3b421578588243f920886e6fe79a6faa87ea026e install/enable/load, Doctor,55 supporting methods and final validate --install-deps PASS. Dependency preparation successful, scanner safe, no core override. Declared minimum >=0.23.1. Original live proof used earlier2c955c3 source; live gateway was not upgraded. No released-version live Telegram repeat is claimed.
+- Judge-first original README rewritten in README-only commitea1a0a5eafa328f383aa189a2eaa171bdbf68317 after studying the five requested public READMEs.42 relative links and2 official external destinations verified; unfinished UI/video/public links explicitly labelled. No submitted/frozen artifact changed.
+
+## Current processes and configuration
+
+One live native Telegram gateway hostPID3582313/toolsession68057, original research command python3 probes/hermes_local.py gateway run, home isolated-home. No second poller or Webapp exists. Existing token/realIDs/allowlist stay private. Deployed entry is the previous live-tested version without packaging guards; worker/policy match. Source distribution now declares a newer tested release floor but has not been copied to the primary gateway. Coordinate any reload; never blanket-sync homes or delete locks.
+
+Packaging/validator/test subprocesses completed. A source tag-fetch housekeeping session30161 may still be running; verify its actual status before cleaning anything. Its official v0.23.1 worktree exists separately under vendor/hermes-v0.23.1; original vendor checkout remains2c955c3 and clean.
+
+## Remaining in priority order
+
+1. Implement/test official SDK Desktop/Webapp interface with actual permitted plugin data and auth/loopback/Windows access. PRODUCT.md/Impeccable context initialized only in final folder; relevant skills/references read. No UI or DESIGN.md yet. ctx.register_rpc/host.request is a documented candidate; not implemented. No private renderer patch or new SaaS/MCP service.
+2. Prepare approved public sopskistar repository/catalogPR at an exact40-character reviewed SHA. No remote/push/PR has occurred. Do not delay stable publication for optional polish; user approval required.
+3. Name-conflict check, original branding/logo/accessibility/screenshots with actual installed skills. Keep BlindCouncil absent compelling conflict. No fake states/assets.
+4. Genuine75–85s MP4 under90s with real app/Telegram evidence, X @NousResearch and Typeform links; verify official submission instructions. Official organizer announcement still states November11 17:00EST; no entry submitted/frozen. Form reachability must be checked again.
+5. Action-bound enforcement ACT-01/02 and all P4 scope remain planned/unimplemented/deferred with acceptance criteria in master/roadmap; current votes do not enforce arbitrary Hermes actions.
+
+## Evidence
+
+Research parent: ../../evidence/notification-reliability-20261110, evidence/distribution-lifecycle-20261110, evidence/readme-editorial-20261110. Clean package: docs/evidence/ original native records plus installer-lifecycle-20261110, stable-release-tests-20261110-r1 and stable-release-20261110. Real CLI/install operations with synthetic fixtures are labelled separately from genuine Telegram tests. Original DNS/invalid-command/denied-after-reinstall evidence remains intact; no exit0 with dependency warning is called a clean final preparation.
+
+No paid inference/resources, unrelated changes or public gateway exposure. See HANDOFF.md for exact continuation.

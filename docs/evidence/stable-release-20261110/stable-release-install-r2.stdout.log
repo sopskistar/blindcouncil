@@ -1,0 +1,23 @@
+Warning: custom (unreviewed) source — not from the Hermes catalog.
+Warning: Using insecure/local URL scheme. Consider using https:// or git@ for 
+production installs.
+Cloning 
+file:///home/sopski/projectresearch/hermes-feasibility-20261109/release/blindcou
+ncil...
+
+blindcouncil declares Python dependencies:
+  - python-telegram-bot==22.8
+Consent given up front — preparing them without prompting.
+
+
+╭──────────────────────────────── ✓ Installed ─────────────────────────────────╮
+│ Plugin installed:                                                            │
+│ file:///home/sopski/projectresearch/hermes-feasibility-20261109/release/blin │
+│ dcouncil                                                                     │
+│ Location:                                                                    │
+│ /home/sopski/projectresearch/hermes-feasibility-20261109/packaging-tests/rel │
+│ ease-home/plugins/blindcouncil                                               │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+✓ Plugin blindcouncil enabled.
+

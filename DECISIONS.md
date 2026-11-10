@@ -52,3 +52,6 @@ D-31 — IMPLEMENTED: product CLI presets15m/1h/24h/3d/7d default24h, exact pers
 
 
 D-32 — ACCEPTED/IN PREPARATION: clean dedicated distribution under `release/blindcouncil/`, preserving all research. Root native entry point delegates to the ordinary nested Python package, so packaged tests can import it without private Hermes loaders. Public evidence is sanitized selected original JSON with provenance hashes; no live profile/database/runtime is copied. Test official Git-based installation in a separate credential-free home before claiming portable packaging. Publication still requires user approval.
+
+
+D-33 — VERIFIED: conservative supported floor>=0.23.1 after actual tagged-core installation/enable/load/Doctor/55-method/validator tests. Original native external proof remains on earlier2c955c3. Removal retains data but clears settings; restoration of configured coordinator gates permitted state access. No older release or upgrade-schema claim.

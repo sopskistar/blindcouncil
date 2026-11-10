@@ -24,7 +24,7 @@ Revoking a participant blocks future responses. Previously accepted responses re
 
 ## Retention, backups and deletion
 
-There is no automatic retention purge in 0.1.0. Records stay in the selected `HERMES_HOME` plugin data directory until the operator intentionally deletes them. Plugin removal should retain data; the exact tested installer behavior is recorded in release evidence. Do not infer secure deletion from removing code.
+There is no automatic retention purge in 0.1.0. Records stay in the selected `HERMES_HOME` plugin data directory until the operator intentionally deletes them. Actual Hermes removal/reinstallation retained all fixture database records unchanged in the installer lifecycle proof. Removal cleared plugin settings: configure the coordinator again after reinstall before permitted state can be viewed. Do not infer secure deletion from removing code.
 
 For backup, stop the gateway and other writers first, then copy the plugin data directory using restrictive permissions. Keep backups private: they contain account IDs and responses. Restore only into a compatible isolated profile and verify state before reconnecting the bot. SQLite WAL/SHM files may exist while writers run; copying only an active database file is not a reliable backup.
 

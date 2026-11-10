@@ -1,0 +1,5 @@
+Error: Plugin 'blindcouncil' is pinned to 
+ea1a0a5eafa328f383aa189a2eaa171bdbf68317. To move it, run `hermes plugins 
+install 
+file:///home/sopski/projectresearch/hermes-feasibility-20261109/release/blindcou
+ncil --force --ref <40-character commit SHA>`.

@@ -1,0 +1,35 @@
+{
+  "observed_utc": "2026-11-10T12:27:18.772176+00:00",
+  "command": [
+    "/home/sopski/projectresearch/hermes-feasibility-20261109/runtime/python-3.14.9+20261021-linux-x64/bin/python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "test_count": 55,
+  "classification": "Supporting tests: actual Hermes SQLite; synthetic identities and transport",
+  "real_telegram_calls": false,
+  "live_secret_configuration_loaded": false,
+  "source_sha256": {
+    "__init__.py": "66f9f356cb78b4598461583b94261c4707af978b7b0665b7f25be9751eab280a",
+    "plugin.yaml": "e44bbed7537dc939c99daeb09cdeb932042c051e048b675929fcbfddbd1746bf",
+    "scripts/test.py": "8010e4da175821d19db7f865e801cad50d754e1efe07eb544e83bf66f68a3990",
+    "blindcouncil/__init__.py": "3d4b92803cac74ff51dc55c0ee7e48db35f65e49e35d1dafb7a29d0e0c16b03d",
+    "blindcouncil/expiry.py": "67c7f81819088e49faee477b4f026c4ebf79e8f4f11f63984ce89f58e05463bd",
+    "blindcouncil/lifecycle.py": "b11c71e324356367fdb46ceb77ae9c5cf6f11f9d91504ace3ffdc01a66498ecc",
+    "blindcouncil/notification_worker.py": "95bb3d88423f6272316a345bd2cd13a31926717bff6778db671730989e2d3f01",
+    "blindcouncil/outbox.py": "61125bfd86b7c7056872c653b89e2a2227b1449a0361ed8476b028d59377ae94",
+    "blindcouncil/policy.py": "d4707e122652d9e722f931ed67ce4f68f2930b2caec79ce46b63f33a5d975cff",
+    "blindcouncil/sdk_probe.py": "00b50eacb4c391faba576e96f95c62633c642ce608b33f076577907ce2021b9b",
+    "tests/test_notifications.py": "f8b19a64376345d732dc875c606d0f55520869e41e33324329d59d9370fdb12c",
+    "tests/test_policy.py": "8f204e882e959867376b8a059420f6d9401e846f58c778b11114c0c5a3c32452",
+    "tests/test_public_review.py": "1dd10b0b0393014e6553a5c4e2d94555db0fd7f39b558d54d5645e2d4ced22c8"
+  },
+  "temporary_test_home_removed": true
+}

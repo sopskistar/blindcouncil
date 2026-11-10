@@ -1,0 +1,18 @@
+{
+  "sdk": "Official ctx.register_rpc + host.request, sessionless operator calls supported",
+  "modes": [
+    "Operate"
+  ],
+  "chosen": "Native worklist with an inline create form and decision detail",
+  "alternatives": [
+    "Full page decision table and detail route",
+    "Compact queue pane plus detail panel",
+    "Card dashboard (rejected: weak scanability and meaningless summary metrics)"
+  ],
+  "reason": "Single short decision workflow; native controls and real aggregate/progress are primary",
+  "source_of_truth": "PROJECT_MASTER_PLAN.md and confirmed user requirements",
+  "authoritative_visual_system": "Hermes Desktop SDK theme variables/UI kit; no new theme or private renderer modification",
+  "invented_metrics": false,
+  "raster_comp_required": false,
+  "application_code_written": false
+}
