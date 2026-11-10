@@ -1,123 +1,90 @@
 # BlindCouncil
 
-**Two people decide privately. Hermes delivers the shared outcome.**
+**Private decisions. Shared outcomes.**
 
-A release coordinator needs two reviewers to agree before calling a checklist approved. A group chat makes every answer public; private messages leave the coordinator checking identities, counting replies, chasing failed deliveries and reconstructing what survived a restart.
+Human decisions shouldn't be guessed by an AI or lost in a group chat. **BlindCouncil is a native Hermes Agent plugin for collecting authenticated human responses, applying deterministic decision rules, and keeping a durable record of the shared result.**
 
-BlindCouncil puts that workflow inside Hermes. It sends separate Telegram requests, accepts one authenticated response per account and applies a persisted unanimous policy. The coordinator sees progress and the aggregate result; no model decides how a person voted.
+Telegram is the first participation channel. **Version 0.1.0 implements a two-account, collect-both unanimous decision workflow**—a working first step toward broader human-decision infrastructure for AI-assisted work.
 
-BlindCouncil’s product vision is a privacy-conscious human authorization and decision engine for Hermes. **Telegram is its first response channel.** The current build implements authenticated decision coordination and deterministic outcomes; it has **no agent-facing tools or protected action executor yet**. Action-bound approval for one exact structured operation is being investigated separately. See the [capability audit](docs/CAPABILITY_AUDIT.md) for implemented, tested and future boundaries.
+[How it works](#how-it-works) · [Try it](#install-and-try-it) · [Verified demo evidence](#verified-in-practice) · [Security boundaries](#privacy-and-trust) · [Architecture](docs/ARCHITECTURE.md)
 
-**[Judge walkthrough](#judges-start-here) · [Genuine evidence](#what-is-verified) · [Native interface](docs/DESKTOP.md) · [Source](blindcouncil) · [Architecture](docs/ARCHITECTURE.md) · [Security](SECURITY.md)**
+![BlindCouncil in the native Hermes Desktop/Webapp, displaying a genuine approved decision](docs/media/native-decision-light.png)
 
-**Status:** working native Hermes/Telegram core and Desktop/Webapp interface. Browser creation/cancellation was tested in a token-free profile; the interface now also reads genuine Telegram history on the upgraded isolated gateway. Public GitHub/catalog, final visual review and demo video are pending. No public hosted demo is claimed.
+*Real Hermes decision history and aggregate notifications, not a mockup. [Dark interface](docs/media/native-decision-dark.png).*
 
-![BlindCouncil inside the real Hermes Webapp, showing a genuine approved decision and delivered notifications](docs/media/native-decision-light.png)
+## The problem
 
-Existing round `27cf6925d334`, opened through the authenticated operator interface. Its two genuine callbacks and deliveries were verified earlier; this screenshot adds no new vote or action authorization. [Capture provenance](docs/media/PROVENANCE.json), [genuine-history browser proof](docs/evidence/native-ui-20261110/primary-history-proof.json), [dark variant](docs/media/native-decision-dark.png).
+A release checklist, purchasing request, or operational decision can require several people's judgment. In group chats, responses become scattered; in private messages, coordinators must identify who replied, match each answer to the right request, enforce deadlines, and recover when delivery fails.
 
-## Judges: start here
+A language model can summarize that conversation, but a prompt alone does not authenticate a Telegram account, reject a repeated button press, or persist an immutable response through a gateway restart.
 
-**Shortest path without accounts:** open the [two-account native approval audit](docs/evidence/native-two-account-approval.json), then the [real wrong-message/revocation denials](docs/evidence/native-security-denial.json) and [human-confirmed delivery recovery](docs/evidence/human-recovery-confirmation.json). These are sanitized records from actual gateway sessions and user button presses, not fixture responses. [Provenance hashes](docs/evidence/PROVENANCE.json) preserve the exported originals; the records are local observations, not cryptographic attestations.
+BlindCouncil handles those responsibilities at the plugin and storage boundary, while humans remain responsible for their own decisions.
 
-**Run the actual workflow:** [install and configure](#install-and-configure) one bot with two allowlisted accounts, keep one native gateway running, then:
+## Who it's for
+
+- **Team leads and managers** coordinating release reviews and operational sign-offs.
+- **Organizations and committees** that need a visible decision process rather than scattered informal replies.
+- **Hermes developers** exploring dependable human participation in AI-assisted workflows.
+
+**Important scope:** this release coordinates and records decisions. It does **not** yet automatically block arbitrary Hermes tools, grant permission to execute an action, or implement a general multi-person policy engine.
+
+## How it works
+
+1. An authorized coordinator creates a named decision in the native Hermes Desktop interface or CLI.
+2. Two configured, allowlisted Telegram accounts receive **separate private requests** with Approve and Reject buttons.
+3. Each response is checked against the Telegram account, bound private message, decision membership, and current state. A response is recorded only once.
+4. The current **collect-both unanimous policy** resolves after both responses: two approvals mean **APPROVED**; any rejection means **REJECTED**. One response alone leaves the decision **PENDING**.
+5. Hermes Desktop displays progress, decision history, expiry and aggregate results. The notification worker persists outgoing work and can retry eligible failed deliveries.
+
+Cancelled and expired rounds cannot accept new votes. Decision history and queued notifications survive normal gateway restarts.
+
+## Verified in practice
+
+BlindCouncil has been exercised with **two distinct Telegram accounts owned by one tester**, with genuine button presses and native Hermes gateway behavior. That demonstrates separate authenticated account identities, **not** two independent humans.
+
+| Scenario | Evidence |
+| --- | --- |
+| Two private approvals and deterministic result | [Native approval](docs/evidence/native-two-account-approval.json) |
+| Rejection and repeated-response protection | [Rejection](docs/evidence/native-rejection.json) · [Duplicate denial](docs/evidence/native-duplicate.json) |
+| Invalid message, revocation, cancellation and expiry | [Security denials](docs/evidence/native-security-denial.json) · [Expiry](docs/evidence/native-expiry.json) |
+| Persistence through restart | [Restart comparison](docs/evidence/native-restart.json) |
+| Blocked Telegram delivery and targeted recovery | [Retry audit](docs/evidence/native-delivery-recovery.json) · [Human confirmation](docs/evidence/human-recovery-confirmation.json) |
+| Native Hermes interface displaying real history | [Browser proof](docs/evidence/native-ui-20261110/primary-history-proof.json) |
+
+The repository also includes **64 passing supporting tests** with actual Hermes SQLite and synthetic transport/identities, plus official Hermes installation, Doctor and validation evidence. These tests are not represented as additional live human sessions.
+
+**For judges:** Begin with the image above and the [two-account approval record](docs/evidence/native-two-account-approval.json). For a hands-on local run, follow the steps below. There is no publicly hosted, account-free Hermes instance.
+
+## Install and try it
+
+Requires **Hermes Agent 0.23.1 or newer** with Telegram gateway support. Install the reviewed plugin source at its catalog-pinned commit:
+
+```bash
+hermes plugins install https://github.com/sopskistar/blindcouncil.git \
+  --ref 2a7ceb4b75bfc24d9fa45349b08764eaeb082e48 \
+  --enable --yes-deps
+```
+
+The install prepares the declared `python-telegram-bot==22.8` dependency. Review dependencies before approving installation.
+
+Configure the integration in your own Hermes profile:
+
+1. Run `hermes gateway setup` and configure **one Telegram bot** with both intended participant accounts on its allowlist. Keep its token in Hermes' secret configuration.
+2. Each account must open the bot and press **Start** before the bot can send it private invitations.
+3. Run `hermes blindcouncil configure` and provide the two distinct Telegram numeric account IDs locally. Account 1 is the coordinator in this version.
+4. Run `hermes blindcouncil readiness`, then use your normal Hermes gateway process. **Do not start a second poller for the same bot.**
+
+Create and inspect a real decision:
 
 ```bash
 hermes blindcouncil create --title "Release checklist" --expires 24h
 hermes blindcouncil status --round-id ROUND_ID
-```
-
-1. On Account 1's private request, press **Approve**. Status remains **PENDING**, with one response.
-2. On Account 2's own request, press **Approve**. The result becomes **APPROVED** and both authorized participants receive the aggregate.
-3. Press an already answered button again. It reports **Your response is already recorded** and adds no vote.
-4. To see rejection, create a fresh round and choose **Approve** on one account and **Reject** on the other. The result is **REJECTED**. Do not reuse or edit old responses.
-
-The first response stays pending even if it is a rejection: this version collects both responses before resolving. The live outcomes above were already exercised; no judge needs to trust an AI-generated transcript. [Approval](docs/evidence/native-two-account-approval.json), [rejection](docs/evidence/native-rejection.json), [duplicate protection](docs/evidence/native-duplicate.json).
-
-## What is verified
-
-| Behavior | Evidence | Test boundary |
-|---|---|---|
-| Two distinct configured accounts approve | [Native audit](docs/evidence/native-two-account-approval.json) | Genuine Telegram callbacks and human confirmation |
-| Mixed responses reject; a repeated tap adds nothing | [Rejection](docs/evidence/native-rejection.json), [duplicate](docs/evidence/native-duplicate.json) | Genuine Telegram callbacks |
-| Wrong message and revoked participant denied, with zero votes | [Security audit](docs/evidence/native-security-denial.json) | Genuine callbacks; decision-scoped authorization |
-| Cancellation/expiry reject late responses | [Cancellation](docs/evidence/native-cancellation.json), [expiry](docs/evidence/native-expiry.json) | Genuine late button presses |
-| Stored rounds survive a gateway restart | [Before/after comparison](docs/evidence/native-restart.json) | Actual native gateway stop/start |
-| Aggregate reaches both participants | [Delivery audit](docs/evidence/native-approved-notifications.json) | Real Telegram deliveries, confirmed on both accounts |
-| Blocked recipient recovers without resending the successful invitation | [Forbidden](docs/evidence/native-blocked-delivery.json), [targeted retry](docs/evidence/native-delivery-recovery.json), [user confirmation](docs/evidence/human-recovery-confirmation.json) | Real block/unblock; original error and exact deadline retained |
-| Policy, rollback, migration, concurrency, delivery and operator RPC boundary | [64 passing methods](docs/evidence/operator-rpc-tests-20261110-r2/result.json), [transcript](docs/evidence/operator-rpc-tests-20261110-r2/stderr.log) | Actual Hermes SQLite; synthetic identities/transport/context; no Telegram network |
-| Native Webapp creation, practical expiry, cancellation and history | [Browser and stored-state proof](docs/evidence/native-ui-20261110/browser-and-storage-proof.json) | Real Hermes browser/RPC/SQLite; synthetic participants; no Telegram delivery claimed |
-| Native interface reads real terminal outcomes; upgrade retains every database record | [Genuine history](docs/evidence/native-ui-20261110/primary-history-proof.json), [unchanged data/configuration](docs/evidence/native-ui-20261110/after-native-browser.json) | Read-only browser inspection after a controlled official v0.23.1 upgrade; no repeated human scenario |
-| Authentication, invalid form and responsive widths | [Browser checks](docs/evidence/native-ui-20261110/browser-auth-responsive-proof.json) | Anonymous protected API returns401; focused title error; desktop/tablet/phone fit; not a complete accessibility certification |
-
-These are scoped integration proofs, not production load or adversarial security certification. A globally unallowlisted third account was not tested live. The owner used two accounts; distinct account identities do not establish independent humans. [Real installation/removal/reinstallation](docs/evidence/installer-lifecycle-20261110/lifecycle-summary.json) retained all fixture records. Final compatibility/validation results are tracked in [PROJECT_STATUS.md](PROJECT_STATUS.md).
-
-## Why this belongs in Hermes
-
-Hermes owns the gateway, bot credentials, configuration, plugin loading and persistent storage. BlindCouncil contributes the policy and coordination state through official interfaces:
-
-| Hermes surface | BlindCouncil's job | Implementation |
-|---|---|---|
-| `ctx.register_platform_handler("telegram", factory)` | Receive native account/message identities and add only `blindcouncil:` callbacks | [Native registration](blindcouncil/__init__.py) |
-| `ctx.spawn_task` | Run owned notification work using Hermes' existing bot | [Worker](blindcouncil/notification_worker.py) |
-| `plugins.plugin_storage.plugin_db()` | Persist decisions, responses, bindings and retry history | [Policy](blindcouncil/policy.py), [schema](blindcouncil/lifecycle.py) |
-| `ctx.register_cli_command` | Create, inspect, cancel and retry without a model call | [Operator CLI](blindcouncil/__init__.py) |
-| `ctx.register_rpc` and Desktop SDK `host.request` | Show permitted real state and operate decisions through an authenticated native page | [Operator RPC](blindcouncil/operator_rpc.py), [Desktop entry](desktop/plugin.js) |
-
-See Hermes' [plugin guide](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins) and [public API](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/public-api). No independent poller, core patch, private renderer modification or MCP server is needed.
-
-The software replaces manual response bookkeeping: send both requests, associate each answer with the original private message, keep an immutable response, enforce a deadline, calculate the aggregate, recover queued work and show delivery failures. A prompt can describe those rules; the stored transactions and transport checks actually enforce them at this plugin's boundary. There is no model-facing vote-submission tool. Trusted host operators remain outside that boundary.
-
-## Architecture
-
-```mermaid
-flowchart LR
-    C[Coordinator CLI or native Desktop] --> D[Persistent decision + outbox]
-    D --> W[Owned native gateway worker]
-    W --> A[Account 1 private request]
-    W --> B[Account 2 private request]
-    A --> V[Identity + message + state checks]
-    B --> V
-    V --> P[Transactional unanimous policy]
-    P --> D
-    W --> R[Authorized aggregate notifications]
-```
-
-The durable queue retains retries and permanent failures. A message binding is committed before actionable buttons are attached. A terminal decision cannot become pending again. Details and limitations are in [architecture](docs/ARCHITECTURE.md) and [notification recovery](docs/NOTIFICATIONS.md).
-
-## Install and configure
-
-Use a recent official Hermes installation with Telegram support. Install this repository at an explicitly reviewed 40-character commit:
-
-```bash
-hermes plugins install <GIT_URL> --ref <REVIEWED_40_CHARACTER_SHA> --enable --yes-deps
-```
-
-These placeholders are intentional until publication. `--yes-deps` consents to Hermes preparing the declared Python dependency; review it first. Interactive installation can ask instead. Hermes owns dependency management.
-
-1. Run `hermes gateway setup` in your own terminal. Configure **one Telegram bot** and explicitly allowlist both participant IDs. Keep its token in Hermes' local secret configuration.
-2. Both accounts must open that same bot and press **Start**. A bot cannot initiate a private conversation with an account that has not started it.
-3. Run `hermes blindcouncil configure`. Enter the two distinct numeric account IDs locally. Account 1 is the coordinator and also a participant. No bot token is requested by this command.
-4. Run `hermes blindcouncil readiness`, then start your usual `hermes gateway run`. Run only one gateway poller for the bot.
-
-The commands use your selected Hermes home/profile. For an experiment, set `HERMES_HOME` to a dedicated home before installation and setup. Do not copy an unrelated profile's secrets or change its settings.
-
-For the graphical workspace, enable the Webapp locally and opt into BlindCouncil in **Capabilities → Plugins**. The [Desktop/Webapp guide](docs/DESKTOP.md) covers the private one-use sign-in link, WSL access and native controls. No inference call is needed to operate this interface.
-
-## Make a decision
-
-```bash
-hermes blindcouncil create \
-  --title "Approve the release checklist" \
-  --description "Both reviewers must confirm that the checklist is complete." \
-  --expires 24h
-hermes blindcouncil status --round-id ROUND_ID
 hermes blindcouncil history --limit 20
 ```
 
-Each participant receives a separate private request with **Approve** and **Reject** buttons. One accepted response leaves the round PENDING. After both respond, two approvals produce APPROVED; a rejection produces REJECTED. Responses are immutable. This release collects both responses before resolving, including when the first response is a rejection.
+Both accounts receive individual requests. Press Approve on the first and inspect the still-pending decision; approve on the second to see the unanimous result. Pressing an already answered button again does not add another response.
 
-Normal expiry choices are `15m`, `1h`, `24h`, `3d` and `7d`; the default is **24 hours**. The exact UTC deadline is persisted once and is never extended by a restart or retry. Short `/bcprobe expire SECONDS` durations exist solely for explicit integration tests.
+Other supported operator commands:
 
 ```bash
 hermes blindcouncil cancel --round-id ROUND_ID
@@ -125,43 +92,24 @@ hermes blindcouncil notifications --round-id ROUND_ID
 hermes blindcouncil retry-notifications --round-id ROUND_ID
 ```
 
-Inspect notification status before retrying. Retry queues only blocked work for that round. After expiry or cancellation an old invitation cannot be revived; a blocked terminal result is a different kind of message. Transient failures retry automatically with bounded backoff. Unblock the bot and press Start before retrying a Forbidden delivery. See [notification recovery](docs/NOTIFICATIONS.md).
+The native Desktop/Webapp page can create, view, cancel and inspect decisions, and review notification state. Enable it through **Capabilities → Plugins** after installing. See the [Desktop guide](docs/DESKTOP.md) for local authentication and Windows/WSL access.
 
-## Privacy and authority
+## Built natively for Hermes
 
-- Participants receive private requests and authorized aggregate outcomes. Operator CLI outputs expose progress and aggregates, not individual answers or account IDs.
-- Two-person unanimity can permit someone to **infer** another person's answer from their own answer and the aggregate. This is controlled disclosure, not cryptographic secrecy.
-- The trusted gateway operator, host and installed in-process code can access the local database. This is not end-to-end encryption, zero knowledge or tamper-proof storage.
-- Two Telegram accounts prove distinct authenticated account identities, not two independent humans.
-- BlindCouncil does **not** currently authorize or block other Hermes actions. Action-bound enforcement is planned. No Hermes-wide enforcement is claimed.
-- Telegram may deliver duplicates after an uncertain network acknowledgement. Database mutations and logical notification work are idempotent; exactly-once external delivery is not promised.
+BlindCouncil uses Hermes' official Telegram platform handler, lifecycle-managed background task, plugin SQLite storage, local CLI commands, authenticated operator RPC and Desktop SDK. It does **not** run an independent Telegram poller or require a hosted database, a paid AI model, or modifications to Hermes' core.
 
-Read [security and data handling](SECURITY.md) before using sensitive decisions.
+[Architecture](docs/ARCHITECTURE.md) · [Notification recovery](docs/NOTIFICATIONS.md) · [Desktop integration](docs/DESKTOP.md) · [Troubleshooting](docs/TROUBLESHOOTING.md)
 
-## Compatibility and development
+## Privacy and trust
 
-Version **0.1.0**, schema **3**, Python 3.14.9 and python-telegram-bot 22.8. Hermes **0.23.1 or newer** is the conservative declared floor. The native factory runs **in process**. Original live callbacks used source `2c955c3a8c0bf8f52cbfad13ed3215ade4eb6f94`; the primary gateway now runs the official v0.23.1 tag `3b421578588243f920886e6fe79a6faa87ea026e`. Its preserved genuine history passes browser checks; no new callback on that version is implied. [64-method source inventory](docs/evidence/operator-rpc-tests-20261110-r2/result.json), [Doctor](docs/evidence/native-ui-20261110/operator-rpc-hardened-doctor.stdout.log), [dependency-prepared validation](docs/evidence/native-ui-20261110/native-reviewed-validator-r3.stdout.log).
+Individual Telegram responses are not displayed in the participant-facing aggregate or operator progress view. **Aggregate outcomes may still reveal another person's vote by inference**, especially with only two people. The trusted Hermes host/operator and installed in-process code can access the local database.
 
-```bash
-hermes plugins doctor . --ci
-hermes plugins validate . --install-deps
-python3 scripts/test.py --help
-```
+This is not end-to-end encryption, zero knowledge, tamper-proof storage, a proof of independent human identity, or a guarantee of exactly-once external Telegram delivery. The plugin does not currently enforce approvals before other Hermes actions.
 
-The [supporting runner](scripts/test.py) reuses an existing Hermes-managed environment and creates temporary credential-free homes. It never starts Telegram polling or loads the live secret configuration. [Troubleshooting](docs/TROUBLESHOOTING.md) covers failed delivery, authorization and recovery.
+See [SECURITY.md](SECURITY.md) for data handling, trust boundaries and retention.
 
-```text
-__init__.py          native Hermes loader entry
-plugin.yaml          metadata, settings and pinned Python dependency
-blindcouncil/        native handlers, policy, lifecycle, outbox and worker
-desktop/plugin.js   official native page, navigation and permitted RPC controls
-tests/               supporting policy, security and recovery regressions
-scripts/test.py      isolated test runner
-docs/evidence/       sanitized original live proofs and supporting results
-SECURITY.md          trust, disclosure, retention and deletion
-PROJECT_MASTER_PLAN.md / ROADMAP.md / HANDOFF.md   durable scope and continuation
-```
+## Beyond the first release
 
-The native interface is **functional and browser-tested**, including genuine history. Manual Windows access, full contrast/theme/accessibility review, final identity and video remain open. On narrow screens the selected detail follows the history list. Agent-callable authorization requests, a fail-closed action executor, additional policies and platforms remain **planned**. Only two-person collect-both unanimity exists today. The [scoped action investigation](docs/ACTION_BOUND_APPROVAL.md) considers an exact bounded release note in plugin-owned storage; no grant or execution test exists. Current aggregate messages do not authorize other Hermes actions. The [master plan](PROJECT_MASTER_PLAN.md) and [roadmap](ROADMAP.md) preserve all future scope without claiming it shipped.
+The broader direction is a reusable human-decision and authorization engine, with additional decision policies, participants, response channels and carefully scoped action-bound approvals. These are **future work**, not features claimed in this build. See the [roadmap](ROADMAP.md) and [capability audit](docs/CAPABILITY_AUDIT.md).
 
-MIT licensed: [LICENSE](LICENSE). No paid model API or hosted database is required by the implemented workflow. The plugin does not depend on a Vercel site.
+MIT licensed · [Source](blindcouncil/) · [Tests](tests/) · [Hermes catalog pull request #152770](https://github.com/NousResearch/hermes-agent/pull/152770)
