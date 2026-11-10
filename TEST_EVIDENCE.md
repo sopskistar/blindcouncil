@@ -183,3 +183,8 @@ Read README_EDITORIAL_STANDARD.md on both trees. Original final candidate6801468
 Exact next step: inspect the real gateway-connection diagnostic result, solve the documented Webapp auth/connection setup without core patches or paid calls, enable the unified UI via Hermes' own controls, test onboard/create/detail/cancel/history/error/expiry and privacy. Source test profile currently has no configured participants, so expected onboarding first. Then configure ONLY synthetic local IDs in this token-free home for supporting UI tests. Primary genuine data requires a controlled deployment/reload plan, preserving configuration/DB/evidence and one poller. UI source is not deployed to primary.
 
 Unfinished design/video/publication and all future master-plan requirements remain preserved. No model inference, paid resource, public binding, fake live callback or final video claim.
+
+
+## Actual native Webapp browser workflow — November10
+
+Official one-use authentication and native sidebar loading succeeded without model credentials using the host’s normal provider-later option. Actual Webapp create/cancel/history flow passed; stored one-hour exact deadline and zero votes/receipts corroborated in clean docs/evidence/native-ui-20261110/browser-and-storage-proof.json. This is actual Hermes UI/RPC/SQLite with explicitly synthetic participants in a token-free profile, not genuine Telegram interaction. Auth-negative probe saw an anonymous connection error/no result; exact HTTP auth rejection classification remains to verify before promoting that security gate. No static mockups/forged votes were used.

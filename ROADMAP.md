@@ -1,6 +1,6 @@
 # BlindCouncil roadmap and acceptance criteria
 
-Statuses: **IMPLEMENTED** means the stated subset exists and has the cited kind of evidence; **BLOCKED** requires an external prerequisite; **PLANNED** is unfinished MVP work; **DEFERRED** is retained future scope. None means a planned test passed. Read `PROJECT_STATUS.md` and `TEST_EVIDENCE.md` for actual outcomes.
+Statuses: **PARTIAL** means a verified subset exists with open acceptance gates. **IMPLEMENTED** means the stated subset exists and has the cited kind of evidence; **BLOCKED** requires an external prerequisite; **PLANNED** is unfinished MVP work; **DEFERRED** is retained future scope. None means a planned test passed. Read `PROJECT_STATUS.md` and `TEST_EVIDENCE.md` for actual outcomes.
 
 ## MVP and submission
 
@@ -8,17 +8,17 @@ Statuses: **IMPLEMENTED** means the stated subset exists and has the cited kind 
 |---|---|---|
 | M-01 | IMPLEMENTED | Local plugin loading, native factory registration, baseline policy/storage, setup/readiness/audit scaffolding; actual two-account native approval evidence also exists |
 | M-02 | IMPLEMENTED (scoped) | P0 INT-01–11: genuine two-account Approve/Approve now PASS, including distinct configured receipts and actual result delivery. Duplicate and native restart recovery PASS. Fresh rejection round cb54bed1b2b7 PASS including second native restart; wrong-message and decision-revoked participant genuine denials PASS. Global out-of-allowlist third-account negative remains supporting-only. Cancelled/expired taps and persistence pass. Keep evidence separate |
-| M-03 | PLANNED | CORE-01–05: validated title/description/participants/policy creation, safe request binding, status/progress and deterministic resolution, tested through real workflow |
+| M-03 | IMPLEMENTED CLI/RPC; UI partial | CORE-01–05: validated two-person creation/policy/request binding/resolution exist; genuine native decisions and actual browser create/cancel flow verified. Remaining UI coverage/deployment tracked under M-09 |
 | M-04 | IMPLEMENTED | CORE-06–07: pending-only cancellation/expiry implemented and supporting tests pass; real pending round cancelled without losing its receipt. Genuine cancelled and expired late taps PASS; actual restart preserves both distinct terminal states, original response/receipt counts and fingerprints |
 | M-04a | IMPLEMENTED CLI / PLANNED graphical UX | CORE-07a: 24-hour normal default; presets 15 minutes, 1 hour, 24 hours, 3 days, 7 days. Existing engine accepts validated finite numeric durations through seven days and stores an exact UTC deadline; CLI preset selection now implemented/tested; graphical controls still need implementation. Explicit short integration-test durations remain supported and never become the normal default. |
-| M-05 | PLANNED | CORE-08–09: permitted history/aggregate access and authorized-recipient notifications without private answer leakage |
-| M-06 | PLANNED | REL-01–06 / SEC-01–04: complete reliability/security. Supporting concurrency/rollback/revocation/access regressions now pass in the 52-test isolated suite; real negative transport, outbox and remaining recovery cases remain unfinished |
-| M-07 | PLANNED | Schema v1 and additive legacy migration now preserve decisions/receipts, policy versions, timestamps and events; real restart fingerprint checks PASS. Pending notification state/outbox migration and full failure/recovery tests remain PLANNED |
-| M-08 | PLANNED | PKG-01–02: clean install/remove/update/compatibility, truthful dependencies/capabilities and official validators on exact final tree |
-| M-09 | PLANNED | Official Desktop/Webapp: verify SDK, actual localhost UI/auth and Windows-to-WSL access; real data/permissions; required screens and accessible states |
+| M-05 | IMPLEMENTED scoped | CORE-08–09: owner history/progress/aggregate projections and authorized aggregate notifications to both participants; genuine delivery and supporting access/privacy tests. Full native UI coverage remains open |
+| M-06 | IMPLEMENTED tested scope | REL-01–06 / SEC-01–04: transactions/concurrency/rollback/current auth/outbox failures/recovery and real negative transport tested. No production security certification or live third-account global-allowlist claim |
+| M-07 | IMPLEMENTED | Schema3 additive migrations, immutable receipts, metadata/events and durable outbox recovery verified; legacy unknown timestamps remain NULL and old terminal notifications do not replay |
+| M-08 | IMPLEMENTED candidate; UI revalidation pending | PKG-01–02 real pinned install/enable/load/remove/reinstall/data retention and official v0.23.1 Doctor/validator PASS for6801468. Updated UI/source needs final exact-commit checks |
+| M-09 | PARTIAL | Official SDK operator RPC/UI, real browser onboarding/create/default/presets/cancel/history and stored expiry verified. Auth-negative/responsive/error coverage and deployment to genuine Telegram history/Windows access remain open |
 | M-10 | PLANNED | Collision research, final identity/assets, light/dark and motion where supported; no extensive design until P0 |
-| M-11 | PLANNED | Onboarding, installation/setup/privacy/security/retention/deletion/recovery/troubleshooting docs, guided demo and FAQ |
-| M-12 | PLANNED | Dedicated sopskistar repository, license and catalog PR after approval; exact reviewed SHA, public links and validation evidence |
+| M-11 | PARTIAL | Install/setup/privacy/security/retention/deletion/recovery/troubleshooting docs and actual UI onboarding exist. Final guided demo/FAQ/media must match completed functionality |
+| M-12 | PARTIAL; publication approval required | Dedicated local main/native-interface repository, MIT and exact-pin catalog draft exist; no public repository or catalog PR yet |
 | M-13 | PLANNED | Genuine 75–85 second MP4, under 90 seconds, two-account flow and real reliability test; rendered file inspected |
 | M-14 | PLANNED | Approved X post tagging @NousResearch and official form submission; verify rules, record evidence in docs/SUBMISSION.md |
 | M-15 | IMPLEMENTED | Persistent master/status/handoff/decisions/roadmap/evidence/AGENTS records and local checkpoint; future-account recovery commands and all deferred requirements retained |
@@ -119,3 +119,6 @@ Native reliability milestone: fresh24h ac4e9f1d4090 real blocked-bot failure →
 
 
 Native interface update: documented operator RPC implemented/63 supporting methods passed; official Webapp bundle built; UI source drafted but real browser gate still OPEN (host connecting overlay). Existing completed Telegram scenarios remain PASS and must not be repeated. Actual install/remove/release compatibility PASS; publishing/design/demo still unfinished. No future feature removed.
+
+
+ACT-01 clarification: investigate fixed plugin-owned release-note artifact as the smallest guarded action, using structured request and fail-closed single-use execution tools. Bind exact parameters/participants/policy/validity before actual consent, deny nonapproved/mismatch/replay/uncertain grants, and prove a harmless real effect. PLANNED/UNIMPLEMENTED/UNTESTED; timeboxed only after required UI/validation/catalog/demo gates. Earlier Telegram-announcement alternative retained. Agent model initiation requires separate real authorized access evidence. All POL/COM/GOV/UX/APP/INF rows remain retained/deferred.

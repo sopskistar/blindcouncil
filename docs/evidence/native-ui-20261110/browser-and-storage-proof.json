@@ -1,0 +1,41 @@
+{
+  "observed_utc": "2026-11-10T15:00:05.307153+00:00",
+  "classification": "Real Hermes Webapp/browser/RPC/storage integration; synthetic configured participants; no Telegram delivery or votes simulated",
+  "round_id": "37223498e5be",
+  "final_state": "cancelled",
+  "stored_duration_seconds": 3600.0,
+  "exact_expiry_utc": "2026-11-10T15:59:14.913321+00:00",
+  "accepted_votes": 0,
+  "accepted_receipts": 0,
+  "notifications": [
+    {
+      "kind": "invite",
+      "state": "obsolete",
+      "count": 2
+    },
+    {
+      "kind": "result",
+      "state": "queued",
+      "count": 2
+    }
+  ],
+  "actual_browser_checks": {
+    "defaultIs24Hours": true,
+    "availableDurations": [
+      "15 minutes",
+      "1 hour",
+      "24 hours",
+      "3 days",
+      "7 days"
+    ],
+    "createdRoundHasRealIdentifier": true,
+    "createdPending": true,
+    "cancelConfirmationCanBeDismissed": true,
+    "cancelledByRealRpc": true,
+    "pendingFilterReflectsCancellation": true,
+    "historyContainsCreatedDecision": true
+  },
+  "browser_page_errors": 0,
+  "live_telegram_gateway_modified": false,
+  "passed": true
+}
