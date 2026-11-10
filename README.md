@@ -8,9 +8,13 @@ BlindCouncil puts that workflow inside Hermes. It sends separate Telegram reques
 
 BlindCouncil’s product vision is a privacy-conscious human authorization and decision engine for Hermes. **Telegram is its first response channel.** The current build implements authenticated decision coordination and deterministic outcomes; it has **no agent-facing tools or protected action executor yet**. Action-bound approval for one exact structured operation is being investigated separately. See the [capability audit](docs/CAPABILITY_AUDIT.md) for implemented, tested and future boundaries.
 
-**[Judge walkthrough](#judges-start-here) · [Genuine Telegram evidence](#what-is-verified) · [Source](blindcouncil) · [Architecture](docs/ARCHITECTURE.md) · [Security](SECURITY.md)**
+**[Judge walkthrough](#judges-start-here) · [Genuine evidence](#what-is-verified) · [Native interface](docs/DESKTOP.md) · [Source](blindcouncil) · [Architecture](docs/ARCHITECTURE.md) · [Security](SECURITY.md)**
 
-**Status:** working native Hermes/Telegram core and a real Desktop/Webapp create/cancel/history flow. The interface is currently browser-tested in a token-free profile with synthetic participants; deployment against genuine Telegram history and remaining UI checks are still open. Public GitHub/catalog and demo video are pending. No hosted public demo or fabricated application screenshot is claimed.
+**Status:** working native Hermes/Telegram core and Desktop/Webapp interface. Browser creation/cancellation was tested in a token-free profile; the interface now also reads genuine Telegram history on the upgraded isolated gateway. Public GitHub/catalog, final visual review and demo video are pending. No public hosted demo is claimed.
+
+![BlindCouncil inside the real Hermes Webapp, showing a genuine approved decision and delivered notifications](docs/media/native-decision-light.png)
+
+Existing round `27cf6925d334`, opened through the authenticated operator interface. Its two genuine callbacks and deliveries were verified earlier; this screenshot adds no new vote or action authorization. [Capture provenance](docs/media/PROVENANCE.json), [genuine-history browser proof](docs/evidence/native-ui-20261110/primary-history-proof.json), [dark variant](docs/media/native-decision-dark.png).
 
 ## Judges: start here
 
@@ -41,8 +45,10 @@ The first response stays pending even if it is a rejection: this version collect
 | Stored rounds survive a gateway restart | [Before/after comparison](docs/evidence/native-restart.json) | Actual native gateway stop/start |
 | Aggregate reaches both participants | [Delivery audit](docs/evidence/native-approved-notifications.json) | Real Telegram deliveries, confirmed on both accounts |
 | Blocked recipient recovers without resending the successful invitation | [Forbidden](docs/evidence/native-blocked-delivery.json), [targeted retry](docs/evidence/native-delivery-recovery.json), [user confirmation](docs/evidence/human-recovery-confirmation.json) | Real block/unblock; original error and exact deadline retained |
-| Policy, rollback, migration, concurrency, delivery and operator RPC boundary | [63 passing methods](docs/evidence/operator-rpc-tests-20261110-r1/result.json), [transcript](docs/evidence/operator-rpc-tests-20261110-r1/stderr.log) | Actual Hermes SQLite; synthetic identities/transport/context; no Telegram network |
+| Policy, rollback, migration, concurrency, delivery and operator RPC boundary | [64 passing methods](docs/evidence/operator-rpc-tests-20261110-r2/result.json), [transcript](docs/evidence/operator-rpc-tests-20261110-r2/stderr.log) | Actual Hermes SQLite; synthetic identities/transport/context; no Telegram network |
 | Native Webapp creation, practical expiry, cancellation and history | [Browser and stored-state proof](docs/evidence/native-ui-20261110/browser-and-storage-proof.json) | Real Hermes browser/RPC/SQLite; synthetic participants; no Telegram delivery claimed |
+| Native interface reads real terminal outcomes; upgrade retains every database record | [Genuine history](docs/evidence/native-ui-20261110/primary-history-proof.json), [unchanged data/configuration](docs/evidence/native-ui-20261110/after-native-browser.json) | Read-only browser inspection after a controlled official v0.23.1 upgrade; no repeated human scenario |
+| Authentication, invalid form and responsive widths | [Browser checks](docs/evidence/native-ui-20261110/browser-auth-responsive-proof.json) | Anonymous protected API returns401; focused title error; desktop/tablet/phone fit; not a complete accessibility certification |
 
 These are scoped integration proofs, not production load or adversarial security certification. A globally unallowlisted third account was not tested live. The owner used two accounts; distinct account identities do not establish independent humans. [Real installation/removal/reinstallation](docs/evidence/installer-lifecycle-20261110/lifecycle-summary.json) retained all fixture records. Final compatibility/validation results are tracked in [PROJECT_STATUS.md](PROJECT_STATUS.md).
 
@@ -56,6 +62,7 @@ Hermes owns the gateway, bot credentials, configuration, plugin loading and pers
 | `ctx.spawn_task` | Run owned notification work using Hermes' existing bot | [Worker](blindcouncil/notification_worker.py) |
 | `plugins.plugin_storage.plugin_db()` | Persist decisions, responses, bindings and retry history | [Policy](blindcouncil/policy.py), [schema](blindcouncil/lifecycle.py) |
 | `ctx.register_cli_command` | Create, inspect, cancel and retry without a model call | [Operator CLI](blindcouncil/__init__.py) |
+| `ctx.register_rpc` and Desktop SDK `host.request` | Show permitted real state and operate decisions through an authenticated native page | [Operator RPC](blindcouncil/operator_rpc.py), [Desktop entry](desktop/plugin.js) |
 
 See Hermes' [plugin guide](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins) and [public API](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/public-api). No independent poller, core patch, private renderer modification or MCP server is needed.
 
@@ -65,7 +72,7 @@ The software replaces manual response bookkeeping: send both requests, associate
 
 ```mermaid
 flowchart LR
-    C[Coordinator CLI] --> D[Persistent decision + outbox]
+    C[Coordinator CLI or native Desktop] --> D[Persistent decision + outbox]
     D --> W[Owned native gateway worker]
     W --> A[Account 1 private request]
     W --> B[Account 2 private request]
@@ -94,6 +101,8 @@ These placeholders are intentional until publication. `--yes-deps` consents to H
 4. Run `hermes blindcouncil readiness`, then start your usual `hermes gateway run`. Run only one gateway poller for the bot.
 
 The commands use your selected Hermes home/profile. For an experiment, set `HERMES_HOME` to a dedicated home before installation and setup. Do not copy an unrelated profile's secrets or change its settings.
+
+For the graphical workspace, enable the Webapp locally and opt into BlindCouncil in **Capabilities → Plugins**. The [Desktop/Webapp guide](docs/DESKTOP.md) covers the private one-use sign-in link, WSL access and native controls. No inference call is needed to operate this interface.
 
 ## Make a decision
 
@@ -131,7 +140,7 @@ Read [security and data handling](SECURITY.md) before using sensitive decisions.
 
 ## Compatibility and development
 
-Version **0.1.0**, schema **3**. Tested with official Hermes source `2c955c3a8c0bf8f52cbfad13ed3215ade4eb6f94` (`vgit.2c955c3`), Python 3.14.9 and python-telegram-bot 22.8. The native factory runs **in process** and requires the official native-handler and supervised-task APIs. Hermes **0.23.1 or newer** is the conservative declared floor; 55 supporting methods and real installation/enablement also passed on the official v0.23.1 tag. The original live Telegram proof used the earlier pinned source above; the running gateway was not upgraded for this release check. [Tested source hashes and environment](docs/evidence/packaged-tests-20261110-r1/result.json).
+Version **0.1.0**, schema **3**, Python 3.14.9 and python-telegram-bot 22.8. Hermes **0.23.1 or newer** is the conservative declared floor. The native factory runs **in process**. Original live callbacks used source `2c955c3a8c0bf8f52cbfad13ed3215ade4eb6f94`; the primary gateway now runs the official v0.23.1 tag `3b421578588243f920886e6fe79a6faa87ea026e`. Its preserved genuine history passes browser checks; no new callback on that version is implied. [64-method source inventory](docs/evidence/operator-rpc-tests-20261110-r2/result.json), [Doctor](docs/evidence/native-ui-20261110/operator-rpc-hardened-doctor.stdout.log), [dependency-prepared validation](docs/evidence/native-ui-20261110/native-reviewed-validator-r3.stdout.log).
 
 ```bash
 hermes plugins doctor . --ci
@@ -145,6 +154,7 @@ The [supporting runner](scripts/test.py) reuses an existing Hermes-managed envir
 __init__.py          native Hermes loader entry
 plugin.yaml          metadata, settings and pinned Python dependency
 blindcouncil/        native handlers, policy, lifecycle, outbox and worker
+desktop/plugin.js   official native page, navigation and permitted RPC controls
 tests/               supporting policy, security and recovery regressions
 scripts/test.py      isolated test runner
 docs/evidence/       sanitized original live proofs and supporting results
@@ -152,6 +162,6 @@ SECURITY.md          trust, disclosure, retention and deletion
 PROJECT_MASTER_PLAN.md / ROADMAP.md / HANDOFF.md   durable scope and continuation
 ```
 
-Desktop/Webapp UX is **partly implemented and browser-tested** as described above. Agent-callable authorization requests, a fail-closed action executor, additional policies and additional platforms remain **planned**. Only two-person collect-both unanimity exists today. A prospective first protected action is an exact bounded release note in plugin-owned storage; no grant or execution test exists yet. Current aggregate messages do not authorize other Hermes actions. The full [master plan](PROJECT_MASTER_PLAN.md) and [roadmap](ROADMAP.md) preserve that scope without claiming it shipped.
+The native interface is **functional and browser-tested**, including genuine history. Manual Windows access, full contrast/theme/accessibility review, final identity and video remain open. On narrow screens the selected detail follows the history list. Agent-callable authorization requests, a fail-closed action executor, additional policies and platforms remain **planned**. Only two-person collect-both unanimity exists today. The [scoped action investigation](docs/ACTION_BOUND_APPROVAL.md) considers an exact bounded release note in plugin-owned storage; no grant or execution test exists. Current aggregate messages do not authorize other Hermes actions. The [master plan](PROJECT_MASTER_PLAN.md) and [roadmap](ROADMAP.md) preserve all future scope without claiming it shipped.
 
 MIT licensed: [LICENSE](LICENSE). No paid model API or hosted database is required by the implemented workflow. The plugin does not depend on a Vercel site.
