@@ -14,5 +14,6 @@
   "authoritative_visual_system": "Hermes Desktop SDK theme variables/UI kit; no new theme or private renderer modification",
   "invented_metrics": false,
   "raster_comp_required": false,
-  "application_code_written": false
+  "application_code_written": true,
+  "verification": "Actual native browser/RPC/SQLite flow and genuine-history reads; final design review outstanding"
 }

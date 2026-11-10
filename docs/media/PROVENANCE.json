@@ -1,0 +1,69 @@
+{
+  "realHermesWebapp": true,
+  "pageUrl": "http://127.0.0.1:9120/",
+  "launchCredentialPrinted": false,
+  "pageErrors": 0,
+  "checks": {
+    "genuineHistory": [
+      {
+        "round": "27cf6925d334",
+        "expectedState": "approved",
+        "displayedState": "approved",
+        "responseCountMatches": true,
+        "privateActorIdsVisible": false
+      }
+    ],
+    "nativeAdapterInactiveWarning": 0,
+    "historyReadOnly": true,
+    "captures": [
+      {
+        "name": "desktop-light",
+        "theme": "light",
+        "background": "color(srgb 0.996235 0.996235 0.996235)",
+        "scrollWidth": 1120,
+        "clientWidth": 1120
+      },
+      {
+        "name": "desktop-dark",
+        "theme": "dark",
+        "background": "color(srgb 0.0509804 0.0625882 0.0810196)",
+        "scrollWidth": 1120,
+        "clientWidth": 1120
+      },
+      {
+        "name": "phone-light",
+        "theme": "light",
+        "background": "color(srgb 0.996235 0.996235 0.996235)",
+        "scrollWidth": 390,
+        "clientWidth": 390
+      }
+    ]
+  },
+  "action": "primary-capture",
+  "files": [
+    {
+      "file": "native-decision-light.png",
+      "sha256": "1fb52945dd533820e276d0356a50c12840975864bbfe1ec63c361558989747cd",
+      "origin": "Unmodified Playwright screenshot of official Hermes Webapp reading genuine existing round27cf6925d334",
+      "synthetic_ui_state": false
+    },
+    {
+      "file": "native-decision-dark.png",
+      "sha256": "fb95a3857424c473821e95b4df55b99e6a7f2b42c5e07d89481b2dc1331f247e",
+      "origin": "Unmodified Playwright screenshot of official Hermes Webapp reading genuine existing round27cf6925d334",
+      "synthetic_ui_state": false
+    },
+    {
+      "file": "native-history-phone.png",
+      "sha256": "1c05e1239a9e1f58ebe7b0f0b745d9a8feb47cce3f55a1b7364c4bcf883c7fd7",
+      "origin": "Unmodified Playwright screenshot of official Hermes Webapp reading genuine existing round27cf6925d334",
+      "synthetic_ui_state": false
+    }
+  ],
+  "installed_plugin_sha": "ce16860051836f9a92a50dae7079df6d42c2ecde",
+  "limitations": [
+    "Existing human-approved outcome, not a new callback or action-bound execution.",
+    "Mobile capture shows history; selected detail follows below the list.",
+    "Host inference-unavailable indicator is truthful; no model calls were made."
+  ]
+}

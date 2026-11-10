@@ -1,0 +1,53 @@
+{
+  "realHermesWebapp": true,
+  "pageUrl": "http://127.0.0.1:9120/",
+  "launchCredentialPrinted": false,
+  "pageErrors": 0,
+  "checks": {
+    "genuineHistory": [
+      {
+        "round": "ac4e9f1d4090",
+        "expectedState": "cancelled",
+        "displayedState": "cancelled",
+        "responseCountMatches": true,
+        "privateActorIdsVisible": false
+      },
+      {
+        "round": "f79effc48d29",
+        "expectedState": "expired",
+        "displayedState": "expired",
+        "responseCountMatches": true,
+        "privateActorIdsVisible": false
+      },
+      {
+        "round": "cb54bed1b2b7",
+        "expectedState": "rejected",
+        "displayedState": "rejected",
+        "responseCountMatches": true,
+        "privateActorIdsVisible": false
+      },
+      {
+        "round": "6917ad5b2a4e",
+        "expectedState": "cancelled",
+        "displayedState": "cancelled",
+        "responseCountMatches": true,
+        "privateActorIdsVisible": false
+      },
+      {
+        "round": "38378f7fbe90",
+        "expectedState": "approved",
+        "displayedState": "approved",
+        "responseCountMatches": true,
+        "privateActorIdsVisible": false
+      }
+    ],
+    "nativeAdapterInactiveWarning": 0,
+    "historyReadOnly": true
+  },
+  "action": "primary-history",
+  "classification": "Actual native Hermes Webapp/RPC reading preserved genuine Telegram history; no new callback or vote",
+  "core_sha": "3b421578588243f920886e6fe79a6faa87ea026e",
+  "installed_plugin_sha": "ce16860051836f9a92a50dae7079df6d42c2ecde",
+  "private_configuration_exported": false,
+  "source_runtime": "Official v0.23.1; primary isolated-home"
+}

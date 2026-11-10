@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-11-10T15:35:30.806078+00:00",
+  "command": [
+    "hermes",
+    "plugins",
+    "validate",
+    "/home/sopski/projectresearch/hermes-feasibility-20261109/release/blindcouncil",
+    "--install-deps"
+  ],
+  "exit_code": 0,
+  "hermes_home": "packaging-tests/release-home",
+  "real_hermes_cli": true,
+  "hermes_source_commit": "3b421578588243f920886e6fe79a6faa87ea026e",
+  "credential_configuration_copied": false,
+  "telegram_network_started": false
+}

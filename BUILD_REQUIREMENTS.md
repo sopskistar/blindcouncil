@@ -2,7 +2,7 @@
 
 User requirements received November 9, 2026. Preserve the original feasibility repository, all evidence and TraceFork findings.
 
-Reconciled source of truth: `PROJECT_MASTER_PLAN.md` expands this earlier summary; `PROJECT_STATUS.md`, `HANDOFF.md`, `DECISIONS.md`, `ROADMAP.md` and `TEST_EVIDENCE.md` preserve execution/recovery detail. No earlier requirement is removed. The user's current update says Telegram setup is already in progress in another terminal: do not overwrite its configuration or ask for the same setup information again. Resume the live gate on “local setup complete.”
+Reconciled source of truth: `PROJECT_MASTER_PLAN.md` expands this earlier summary; `PROJECT_STATUS.md`, `HANDOFF.md`, `DECISIONS.md`, `ROADMAP.md` and `TEST_EVIDENCE.md` preserve execution/recovery detail. No earlier requirement is removed. November10 current-state correction: setup and scoped live gates are completed; the remaining references to setup-in-progress below are historical, not instructions to reset or repeat it. The user's current update says Telegram setup is already in progress in another terminal: do not overwrite its configuration or ask for the same setup information again. Resume the live gate on “local setup complete.”
 
 ## Current gate: real two-account Telegram integration
 

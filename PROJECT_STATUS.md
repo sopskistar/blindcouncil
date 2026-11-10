@@ -1,53 +1,37 @@
 # BlindCouncil current status
 
-Updated November10,2026 12:35UTC. **Scoped P0 native integration and P1 core reliability/package gates PASS. P2 official native UI is next.** Full hackathon submission remains incomplete.
+Updated November 10, 2026, 15:45 UTC. **Scoped live Telegram/reliability gates pass. The native Webapp now reads the genuine decision history. Submission is unfinished.**
 
-## Verified
+## Product boundary — audited before enhancements
 
-- Genuine two-account Approve/Approve and Approve/Reject, distinct configured callback identities, duplicate rejection, cancellation/expiry late-tap denial, wrong-message and decision-revoked denials, and native restart persistence. A globally unallowlisted third account remains supporting-only.
-- Native durable queue restart recovery; actual Forbidden while Account2 blocked the bot; targeted retry after unblock, user-confirmed Account2 receipt/no Account1 duplicate. Exact24h expiry retained, zero accepted votes. ac4e9f1d4090 was PENDING at successful recovery, then supported cleanup CANCELLED only that round with original failure history preserved. No further Telegram test is pending.
-- Clean dedicated local distribution prepared in release/blindcouncil, branch main. Seven runtime modules, root loader façade, MIT, PTB22.8 dependency, truthful trust/disclosure/setup docs and original sanitized proofs. No private configuration copied.
-- Real official pinned install/enable/load/remove/reinstall in a credential-free home. Every fixture database record retained its hash; settings were removed, and permitted access resumed after fixture coordinator reconfiguration. Immutable-pin update refusal verified. Explicit repin changed only README code history, not schema.
-- Actual official Hermes v0.23.1 tag3b421578588243f920886e6fe79a6faa87ea026e install/enable/load, Doctor,55 supporting methods and final validate --install-deps PASS. Dependency preparation successful, scanner safe, no core override. Declared minimum >=0.23.1. Original live proof used earlier2c955c3 source; live gateway was not upgraded. No released-version live Telegram repeat is claimed.
-- Judge-first original README rewritten in README-only commitea1a0a5eafa328f383aa189a2eaa171bdbf68317 after studying the five requested public READMEs.42 relative links and2 official external destinations verified; unfinished UI/video/public links explicitly labelled. No submitted/frozen artifact changed.
+BlindCouncil is intended as a privacy-conscious deterministic human authorization and decision engine for Hermes. Telegram is its first response channel. The current build implements authenticated decision coordination, one policy (exactly two participants, collect both, unanimous approval), operator CLI, authenticated operator RPC and native Desktop/Webapp controls. **Zero agent-facing tools, action grants or protected executors exist. APPROVED does not authorize another Hermes action.** No Hermes-wide guard is claimed.
 
-## Current processes and configuration
+ACT-01/02 remain planned/deferred while required publication and demo work take priority. The narrow fixed release-note candidate is documented in docs/CAPABILITY_AUDIT.md and docs/ACTION_BOUND_APPROVAL.md; API feasibility is not an implementation pass. Real model initiation also needs authorized model access; no paid inference is approved.
 
-One live native Telegram gateway hostPID3582313/toolsession68057, original research command python3 probes/hermes_local.py gateway run, home isolated-home. No second poller or Webapp exists. Existing token/realIDs/allowlist stay private. Deployed entry is the previous live-tested version without packaging guards; worker/policy match. Source distribution now declares a newer tested release floor but has not been copied to the primary gateway. Coordinate any reload; never blanket-sync homes or delete locks.
+## Verified milestones
 
-Packaging/validator/test subprocesses completed. A source tag-fetch housekeeping session30161 may still be running; verify its actual status before cleaning anything. Its official v0.23.1 worktree exists separately under vendor/hermes-v0.23.1; original vendor checkout remains2c955c3 and clean.
+- Genuine two-account approval/rejection, distinct transport identities, duplicate denial, wrong-message and revoked-participant denial, cancelled/expired late-response denial, restart persistence. A globally unallowlisted third account is supporting-only.
+- Real queued notification recovery and both-account aggregate delivery. Actual Telegram Forbidden, targeted invitation retry after unblock, unchanged 24-hour deadline and human-confirmed partner receipt/no owner duplicate. Prior failed/expired rounds are retained. No additional human test is pending.
+- Real pinned installer load/enable/remove/reinstall preserved every fixture DB record. Removal clears settings; access resumed only after fixture coordinator reconfiguration. Immutable-pin update refusal was correctly observed. Explicit repin was README-only, not a schema-upgrade test.
+- Official Hermes v0.23.1, SHA3b421578588243f920886e6fe79a6faa87ea026e: actual loader, Doctor, dependency-prepared catalog validation. Native factory is in-process only. PTB22.8; minimum>=0.23.1 is the conservative tested floor.
+- **64 supporting methods PASS**, using real Hermes SQLite with synthetic identities/transport/context. Includes RPC configuration/storage error redaction and no agent/RPC vote submission. These are not Telegram callbacks.
+- **Real Webapp/RPC/SQLite:** onboarding, create, default24h/five practical durations, selected1h exact stored deadline, pending detail, cancellation confirmation/dismissal, cancellation and history. Token-free test home; no Telegram delivery claimed.
+- **Real browser:** focused blank-title error, aria-invalid, 1440/768/390 viewport checks with no product horizontal overflow; anonymous protected API HTTP401. Dark preference produced a dark host background; exhaustive contrast/theme audit remains open.
+- **Controlled primary deployment:** original bot gateway stopped through public lifecycle; prior plugin source and DB privately backed up; exact local Git package ce16860051836f9a92a50dae7079df6d42c2ecde installed through official CLI. Only webapp.enabled changed. Every DB record hash, credential-file metadata and non-Webapp configuration stayed unchanged.
+- **Genuine history browser gate:**38378f7fbe90 approved, cb54bed1b2b7 rejected,6917ad5b2a4e cancelled,f79effc48d29 expired,ac4e9f1d4090 cancelled match stored states/counts. Participant IDs absent; native adapter loaded; zero page errors. No new callbacks/votes or model calls.
 
-## Remaining in priority order
+## Repositories and current processes
 
-1. Implement/test official SDK Desktop/Webapp interface with actual permitted plugin data and auth/loopback/Windows access. PRODUCT.md/Impeccable context initialized only in final folder; relevant skills/references read. No UI or DESIGN.md yet. ctx.register_rpc/host.request is a documented candidate; not implemented. No private renderer patch or new SaaS/MCP service.
-2. Prepare approved public sopskistar repository/catalogPR at an exact40-character reviewed SHA. No remote/push/PR has occurred. Do not delay stable publication for optional polish; user approval required.
-3. Name-conflict check, original branding/logo/accessibility/screenshots with actual installed skills. Keep BlindCouncil absent compelling conflict. No fake states/assets.
-4. Genuine75–85s MP4 under90s with real app/Telegram evidence, X @NousResearch and Typeform links; verify official submission instructions. Official organizer announcement still states November11 17:00EST; no entry submitted/frozen. Form reachability must be checked again.
-5. Action-bound enforcement ACT-01/02 and all P4 scope remain planned/unimplemented/deferred with acceptance criteria in master/roadmap; current votes do not enforce arbitrary Hermes actions.
+Research: /home/sopski/projectresearch/hermes-feasibility-20261109, branch master. Canonical product: release/blindcouncil, separate native-interface branch. Validated pre-interface main remains68014680360001a66f13ee5c9b489aa4d7e3a16e; current HEAD includes newer interface/docs. Query each Git HEAD for the exact latest SHA. No remote/public repository/catalogPR exists. Explicit publication approval has not been received.
 
-## Evidence
+**One live gateway:** hostPID4048414, toolsession5614, started via python3 probes/primary_ui_gate.py run, official release core, same isolated-home/token/realIDs/allowlist. Webapp verified at http://127.0.0.1:9120. Old TelegramPID3582313 and token-free WebappPID3914614 were stopped. Do not restart unnecessarily or start another bot poller. Private logs/backups/browser sessions remain ignored under isolated-home. The old blocked terminal-result job for11b50f663677 stays untouched.
 
-Research parent: ../../evidence/notification-reliability-20261110, evidence/distribution-lifecycle-20261110, evidence/readme-editorial-20261110. Clean package: docs/evidence/ original native records plus installer-lifecycle-20261110, stable-release-tests-20261110-r1 and stable-release-20261110. Real CLI/install operations with synthetic fixtures are labelled separately from genuine Telegram tests. Original DNS/invalid-command/denied-after-reinstall evidence remains intact; no exit0 with dependency warning is called a clean final preparation.
+## Next gates
 
-No paid inference/resources, unrelated changes or public gateway exposure. See HANDOFF.md for exact continuation.
+1. Confirm Windows-browser access using a private one-use link from the user's Ubuntu terminal. Automated WSL authentication and actual UI pass; Windows relay has not been claimed.
+2. Finalize exact reviewed source pin/catalog draft and obtain approval for public sopskistar repository + catalogPR. Never wait for optional polish once stable publication is approved.
+3. Finish native interface branding/accessibility/theme review, original logo and genuine marketplace screenshots. Basic native UI is functional; final professional design is not certified.
+4. Produce/inspect genuine75–85s MP4, always under90s, then prepare X @NousResearch and Typeform. Public posts/submission need separate approval. No video exists yet.
+5. Retain action-bound enforcement and all future policies/channels/exports/templates/teams/organizational scope in ROADMAP.md. Do not relabel planned features as shipped.
 
-
-## Native-interface recovery checkpoint — November10 14:30UTC
-
-Canonical distribution is now on `native-interface`, based on validated commit68014680360001a66f13ee5c9b489aa4d7e3a16e, which remains on main. Source changes were preserved: operator_rpc.py and official ctx.register_rpc registration passed63 supporting methods on actual Hermes SQLite with synthetic context/transport. desktop/plugin.js exists and passes node syntax checking; its real functional/browser gate is NOT passed. Fixed the notification retry control to read actual notifications rather than a nonexistent counts field. No policy/vote/worker mutation was made for the UI.
-
-Official v0.23.1 Webapp renderer built successfully after network retry, at vendor/hermes-v0.23.1/apps/desktop/dist-webapp. New credential-free UI gateway **hostPID3914614 / toolsession23038**, home packaging-tests/release-home, native command from probes/ui_runtime.py run. It has synthetic allowlist10003/10004 but NO bot token, so no competing Telegram poller. Existing native Telegram gatewayPID3582313/session68057 was left untouched. A documented development symlink links the final package into the UI home; prior Git-installed tree preserved privately at packaging-tests/release-home/backups/installed-before-ui. Only this test home's webapp.enabled was changed.
-
-Host-context public status confirms `Serving at http://127.0.0.1:9120`. Playwright through official one-use CLI sign-in loaded the real host shell, but initially remained on Connecting/Backend offline. A real Capabilities click was blocked by the host overlay; never force-clicked or patched it. Diagnostic work is active, not a UI PASS. Private browser profile/evidence/logs stay ignored inside packaging-tests/release-home; no sign-in credential is printed. Browser helper passes the launch URL only by stdin, strips URL diagnostics and captures failures. Needs actual connection resolution, normal user enable toggle and real operator RPC/browser actions before UI promotion.
-
-Read README_EDITORIAL_STANDARD.md on both trees. Original final candidate6801468 still contains no UI; prepared catalog metadata pins it. No publication approval has been received, no external remote/push/PR exists. Earlier asynchronous approval question is not answered by the user's resume prompt; re-review/update pin after UI changes and ask approval when ready. GitHub auth metadata is available for sopskistar; a public exact-name repository search returned0, snapshot catalog had no BlindCouncil collision. Not trademark clearance.
-
-Exact next step: inspect the real gateway-connection diagnostic result, solve the documented Webapp auth/connection setup without core patches or paid calls, enable the unified UI via Hermes' own controls, test onboard/create/detail/cancel/history/error/expiry and privacy. Source test profile currently has no configured participants, so expected onboarding first. Then configure ONLY synthetic local IDs in this token-free home for supporting UI tests. Primary genuine data requires a controlled deployment/reload plan, preserving configuration/DB/evidence and one poller. UI source is not deployed to primary.
-
-Unfinished design/video/publication and all future master-plan requirements remain preserved. No model inference, paid resource, public binding, fake live callback or final video claim.
-
-
-Latest real browser result: official one-use sign-in succeeded, and the host connection completed. The unconfigured model-provider onboarding was deferred using its normal “choose a provider later” button; no paid model/provider was configured. Native Capabilities/Plugins screen loads, zero page errors in these checks. BlindCouncil desktop half is genuinely copied from the linked package. Plugin enablement and its functional screen still need verification; no UI PASS yet. Private captures stay in packaging-tests/release-home/browser-evidence. Current development branch native-interface commit4668036; main6801468 remains unchanged and no publication approved.
-
-
-Latest product audit: docs/CAPABILITY_AUDIT.md records0 agent-facing tools and0 protected action executors. Product vision is a human authorization/decision engine, not a Telegram-only poll. Action-bound fixed release-note artifact is feasible through public tool/storage APIs but remains planned/untested; no middleware/global enforcement claim. Required UI/validation/catalog/demo precede the timeboxed enhancement spike. Current genuine browser create/cancel/history proof is docs/evidence/native-ui-20261110/browser-and-storage-proof.json in the clean package. Existing native Telegram tests are not repeated. No publishing approval received.
+Evidence: clean docs/evidence/native-ui-20261110 and operator-rpc-tests-20261110-r2; research evidence/primary-native-ui-20261110 and distribution-lifecycle-20261110. Earlier DNS failures, driver/onboarding/strict-locator failures are preserved and explained; later success did not rewrite them. Full native callback evidence remains unchanged. See HANDOFF.md for resume commands.

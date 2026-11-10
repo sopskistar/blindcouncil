@@ -1,6 +1,6 @@
 # Native interface reference research
 
-No UI implementation yet. Follow the official Hermes SDK and its own UI kit/theme tokens; third-party component code is not needed or copied.
+Native SDK interface now exists and has real browser evidence; final brand/contrast review is still open. Follow the official Hermes SDK and its own UI kit/theme tokens; third-party component code is not needed or copied.
 
 - https://21st.dev/ — accessible component categories for forms, lists, empty states and navigation; useful hierarchy, not animated marketing heroes.
 - https://magicui.design/docs/components/animated-list — accessible example/documentation for notification updates; use status changes sparingly, never fake incoming activity.
@@ -13,4 +13,4 @@ Official incumbent truth: https://hermes-agent.nousresearch.com/docs/developer-g
 
 UI UX Pro Max's first design-system query returned an off-topic sales/enterprise pattern and contradictory font guidance; it was not persisted or adopted. A focused `error summary validation --domain ux` search returned the relevant Web focusable-error-summary guidance: linked inline field errors, focus summary after submit, announced error state. Adopt those outcomes with native host controls.
 
-Current design direction from user: quiet operator workspace, actual decision list/detail, one clear create action, aggregate/progress and exact deadline; host typography/colors, no meaningless metrics or decorative cards. Screenshots and measured contrast still pending; these notes do not constitute visual verification.
+Current design direction from user: quiet operator workspace, actual decision list/detail, one clear create action, aggregate/progress and exact deadline; host typography/colors, no meaningless metrics or decorative cards. Light/dark/phone real captures have been inspected; measured contrast and independent finish review still pending; these notes do not constitute visual verification.

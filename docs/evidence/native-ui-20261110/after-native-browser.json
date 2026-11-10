@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-11-10T15:39:17.182305+00:00",
+  "database": {
+    "all_records_sha256": "e6f360a6f330dccb7156e527f379196067c7138b1ed09abb95ce2750dbfef4b8",
+    "table_counts": {
+      "callback_attempts": 10,
+      "decision_events": 15,
+      "deliveries": 29,
+      "notification_events": 27,
+      "notification_outbox": 12,
+      "participant_revocations": 1,
+      "receipt_origins": 9,
+      "receipts": 11,
+      "round_lifecycle": 15,
+      "rounds": 15,
+      "sqlite_sequence": 3,
+      "votes": 21
+    },
+    "decision_states": {
+      "approved": 7,
+      "cancelled": 3,
+      "expired": 2,
+      "rejected": 3
+    },
+    "schema_version": 3
+  },
+  "private_values_exported": false,
+  "credential_contents_read": false,
+  "all_database_records_unchanged": true,
+  "credential_file_metadata_unchanged": true,
+  "non_webapp_configuration_unchanged": true,
+  "passed": true
+}
