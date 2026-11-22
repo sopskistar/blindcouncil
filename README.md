@@ -113,3 +113,43 @@ See [SECURITY.md](SECURITY.md) for data handling, trust boundaries and retention
 The broader direction is a reusable human-decision and authorization engine, with additional decision policies, participants, response channels and carefully scoped action-bound approvals. These are **future work**, not features claimed in this build. See the [roadmap](ROADMAP.md) and [capability audit](docs/CAPABILITY_AUDIT.md).
 
 MIT licensed · [Source](blindcouncil/) · [Tests](tests/) · [Hermes catalog pull request #152770](https://github.com/NousResearch/hermes-agent/pull/152770)
+
+---
+
+## Cloud Engineering & DevOps
+
+*Project-specific engineering evidence; only repository-supported capabilities are listed.*
+
+### Cloud platforms
+- Native plugin running inside a local Hermes Agent gateway; no public, hosted cloud service is claimed.
+- SQLite-backed decision history, durable notification outbox and restart persistence are exercised.
+
+### DevOps & CI/CD
+- Python plugin installation, official Hermes Doctor/validation and automated test records are documented.
+- No deployed cloud CI/CD infrastructure or container orchestrator is claimed.
+
+### Networking & API engineering
+- Telegram bot integration authenticates account IDs and binds responses to private decision requests.
+- Duplicate replies, revoked/expired decisions and forged/untrusted messages are rejected at plugin boundaries.
+
+### Monitoring & reliability
+- Persisted delivery work can retry failed notifications; published restart and recovery evidence is available.
+- Tests used two Telegram accounts controlled by one tester, **not** two independent human participants.
+
+### Architecture & infrastructure diagram
+
+```mermaid
+flowchart LR
+  C[Coordinator] --> H[Local Hermes gateway]
+  H --> P[BlindCouncil Python plugin]
+  P --> DB[(Hermes SQLite)]
+  P --> T[Telegram bot]
+  T --> V[Two test accounts]
+  P --> Q[Durable delivery outbox]
+```
+
+**Deployment:** Local Hermes plugin — no public app deployment
+
+**Technical documentation and evidence:** [Architecture](docs/ARCHITECTURE.md) · [Capability audit](docs/CAPABILITY_AUDIT.md) · [Restart proof](docs/evidence/native-restart.json) · [Delivery recovery](docs/evidence/native-delivery-recovery.json).
+
+**Current limits:** Not an enforced authorization layer for arbitrary Hermes actions, end-to-end encrypted system or cloud-hosted service.
